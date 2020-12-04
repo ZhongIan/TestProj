@@ -63,7 +63,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost] // 限定 POST
-        [ValidateAntiForgeryToken] // 防止 CSRF 跨域偽造請求, 只有從頁面來的才能通過
+        // [ValidateAntiForgeryToken] // 防止 CSRF 跨域偽造請求, 只有從頁面來的才能通過
         public ActionResult calendar(v可預訂時間VM vm)
         {
             // 新增 可預訂時間
@@ -107,13 +107,12 @@ namespace WebApplication1.Controllers
                         if (deleteTime != null)
                         {
                             db.t私廚可預訂時間.Remove(deleteTime);
-
                         }
                     }
                 }
                 db.SaveChanges();
             }
-            return RedirectToAction("calendar");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         // === [販售清單列表] ===

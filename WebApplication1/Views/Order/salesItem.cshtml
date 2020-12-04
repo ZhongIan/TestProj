@@ -121,7 +121,7 @@
                                      src="@Model.私廚照片">
                             </td>
                             <td>
-                                <a href="@Url.Action("chefInfo","Order", new { fCID = Model.fCID})"><h5>廚師姓名</h5></a>
+                                <a href="@Url.Action("chefInfo","Order", new { fCID = Model.fCID})"><h5>@Model.私廚姓名</h5></a>
                                 <div class="ratings" id="rate">
                                     @{
                                         for (int i = 0; i < 5; i++)

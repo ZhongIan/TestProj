@@ -11,6 +11,8 @@
 }
 
 <div class="container contact-area section-padding-0-80">
+    <div class="text-right mt-5"><a href="@Url.Action("center","Acc")" class="mr-5"><i class="fa fa-share" aria-hidden="true"></i> 返回會員中心</a></div>
+
     @using (Html.BeginForm("calendar", "Prod", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -43,16 +45,18 @@
         @* 取得待刪除時間字串 ArrGetDeletedTime *@
         <input type="hidden" class="form-control" id="canceltime" name="ArrGetDeletedTime" value="">
         <div class="col-12 text-center">
-            <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+            <button id="save" class="btn delicious-btn mt-30" type="button">儲存</button>
         </div>
 
     }
 </div>
 
-<div id="heartsuccess" class="popstyle" style="display: none;">
-    <i class="fa fa-heart redstatus"
+
+
+<div id="savesuccess" class="popstyle" style="display: none;">
+    <i class="fa fa-check successstatus"
        style="font-size: 28px;line-height: 60px;"></i>
-    <h5><span class="redstatus">儲存成功</span></h5>
+    <h5><span class="successstatus">儲存成功</span></h5>
 </div>
 
 
@@ -179,6 +183,26 @@
 
         });
         @* 成功訊息 非同步 modal (有空做) *@
+
+        $('#save').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("calendar", "Prod")',
+                data: {
+                    fCID : $('#fCID').val(),
+                    ArrGetNewTime: $('#addtime').val(),
+                    ArrGetDeletedTime: $('#canceltime').val()
+                },
+                dataType: 'json',
+                    success: function (data, status, xhr) {
+                        $("#savesuccess").show().delay(1000).hide(300);
+                    },
+                    error: function (xhr, textstatus, data) {
+                        alert(data);
+                    }
+                })
+
+        })
 
     </script>
 }

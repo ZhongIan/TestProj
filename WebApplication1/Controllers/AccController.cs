@@ -211,8 +211,7 @@ namespace WebApplication1.Controllers
                           f生日 = u.f生日,
                           f居住縣市 = u.f居住縣市,
                           f詳細地址 = u.f詳細地址, // 會員中心 地址 = f居住縣市 + f詳細地址
-                          f會員照片 = u.f會員照片,
-                          f電子郵件 = u.f電子郵件
+                          f會員照片 = u.f會員照片
 
                       }).FirstOrDefault(m => m.fUID == userId);
 
@@ -248,12 +247,12 @@ namespace WebApplication1.Controllers
                 }
 
                 acc.f姓名 = vm.f姓名;
-                acc.f暱稱 = vm.f暱稱 ?? "";
+                acc.f暱稱 = vm.f暱稱 ?? "匿名";
                 acc.f電話 = vm.f電話;
                 acc.f生日 = vm.f生日;
                 acc.f居住縣市 = vm.f居住縣市;
                 acc.f詳細地址 = vm.f詳細地址;
-                acc.f電子郵件 = vm.f電子郵件;
+
                 // 照片更新
                 db.SaveChanges();
                 // 重定向到 login

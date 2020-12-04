@@ -433,7 +433,8 @@ namespace WebApplication1.Controllers
                            "<h4><b>產品內容:</b><span>" + prod.項目內容 + "</span></h4>" +
                            "<h4><b>單價:NT$</b><span>" + vm.價格 + "</span></h4>" +
                            "<h4><b>數量:</b><span>" + vm.數量 + "份</span></h4>" +
-                           "<h4><b>總金額:NT$</b><span>" + vm.價格 * vm.數量 + "</span></h4>";
+                           "<h4><b>總金額:NT$</b><span>" + vm.價格 * vm.數量 + "</span></h4>" +
+                           "<span style = 'color:red;'>需額外扣除10%為平台手續費</span>";
 
                 //內容使用html
                 mail.IsBodyHtml = true;

@@ -10,14 +10,14 @@
 }
 
 <div class="container mt-5 mb-5">
-
-    <a href="@Url.Action("productCreate")">
-        <span class="newitem">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            新增販售項目
-        </span>
-    </a>
+    <table style="width:100%">
+        <tr>
+            <td class="text-left"><a href="@Url.Action("productCreate")"><span class="newitem"><i class="fa fa-plus" aria-hidden="true"></i> 新增販售項目</span></a></td>
+            <td class="text-right"><a href="@Url.Action("center","Acc")" style="padding-right:20px;"><i class="fa fa-share" aria-hidden="true"></i> 返回會員中心</a></td>
+        </tr>
+    </table>
 </div>
+
 <div class="container">
 
     <div class="accordions mb-80" id="accordion" role="tablist" aria-multiselectable="true">
@@ -84,7 +84,7 @@
                                 <td rowspan="3" class="text-left pl-4 table-border">
 
                                     <a href="@Url.Action("dishEdit", "Prod", new { fVID = dishitem.fVID }, null)"><i class="fa fa-edit"></i><span class="pl-2">編輯</span></a><br>
-                                    <a href="@Url.Action("dishDelete", "Prod", new { fVID = dishitem.fVID })" onclick="confirm('你確定要刪除嗎?')"><i class="fa fa-trash"></i><span class="pl-2"> 刪除</span></a>
+                                    <a href="@Url.Action("dishDelete", "Prod", new { fVID = dishitem.fVID })"><i class="fa fa-trash"></i><span class="pl-2"> 刪除</span></a>
                                 </td>
                             </tr>
                             <tr>
