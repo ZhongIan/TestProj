@@ -1,0 +1,166 @@
+﻿@model WebApplication1.ViewModels.Acc.v會員中心VM
+@{
+    ViewBag.Title = "會員中心";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+
+<!-- ##### clientinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container p-0">
+        <table style="width: 100%;" class="mt-5 mb-3">
+            <tr>
+                <td style="width: 90%;">
+                    <span class="m-1 noclick">基本資料</span>
+                    <span class="ml-4 mr-4"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>　點數餘額：@Model.點數 點</span>
+                    <a href="@Url.Action("buyPoint","Order")">
+                        <span style="color: #ffa943;">
+                            <i class="fa fa-plus"
+                               aria-hidden="true"></i>　儲值點數
+                        </span>
+                    </a>
+                </td>
+                <td class="text-right" style="width: 10%;">
+                    <a href="@Url.Action("memberInfo")" style="right: 0;">
+                        <h5><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #8b8b8b;"></i></h5>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container single-best-receipe-area">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-4 p-0 ">
+                        <div class="picautosize">
+                            <div class="img-style3" style="background-image: url(@Model.會員照片);"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 card-bg3">
+                        <div class="mb-3"><span style="font-size: 16px;" class="mr-3"><b>@Model.姓名</b></span></div>
+                        <div class="mb-3"><b class="mr-5">暱　　稱</b><span>@Model.暱稱</span></div>
+                        <div class="mb-3"><b class="mr-5">電　　話</b><span>@Model.電話</span></div>
+                        <div class="mb-3"><b class="mr-5">電子郵件</b><span>@Model.電子郵件</span></div>
+                        <div class="mb-3"><b class="mr-5">生　　日</b><span>@Model.生日</span></div>
+                        <div class=""><b class="mr-5">地　　址</b><span>@Model.地址</span></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        if (Model.fCID != null)
+        {
+            <div class="container p-0">
+                <table style="width: 100%;" class="mt-5 mb-3">
+                    <tr>
+                        <td style="width: 50%;"><span class="m-1 noclick">私廚簡介</span>
+                        <td class="text-right" style="width: 50%;">
+                            <a href="@Url.Action("chefEdit")" style="right: 0;">
+                                <h5><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #8b8b8b;"></i></h5>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <div class="col-12 card-bg3">
+                        <table style="line-height: 36px;">
+                            <tr>
+                                <td style="width: 130px;" class="pl-4"><b>服務地區</b></td>
+                                <td>@Model.服務地區</td>
+                            </tr>
+                            <tr>
+                                <td class="pl-4"><b>餐飲風格</b></td>
+                                <td>@Model.餐飲風格</td>
+                            </tr>
+                            <tr>
+                                <td class="pl-4"><b>服務項目</b></td>
+                                <td>@Model.服務項目</td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align:text-top;" class="pl-4"><b>私廚簡介</b></td>
+                                <td class="pr-4">
+                                    @Model.私廚簡介
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container p-0">
+                <table style="width: 100%;" class="mt-5 mb-3">
+                    <tr>
+                        <td><span class="m-1 noclick">服務設定</span>
+                    </tr>
+                </table>
+
+
+                <div class="row delicious-buttons-area mb-80  text-center">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="@Url.Action("calendar","Prod")" class="btn delicious-btn btn-4 m-1" style="width: 100%;">可預訂時間</a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="@Url.Action("salesItemList","Prod")" class="btn delicious-btn btn-4 m-1" style="width: 100%;">販售項目</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container mt-5 mb-5 text-center">
+                <div class="delicious-buttons-area mb-80">
+                    @if (TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_ChefCreate] != null)
+                    {
+                        @* 私廚創建 基本資料未填妥 *@
+                        <button type="button" class="btn delicious-btn btn-4 m-1" data-toggle="modal"
+                                data-target="#modal1">
+                            成為私廚
+                        </button>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("chefCreate")" class="btn delicious-btn btn-4 m-1">成為私廚</a>
+                    }
+
+                </div>
+            </div>
+        }
+    }
+
+</div>
+<!-- ##### clientinfo End ##### -->
+
+
+@if (TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_ChefCreate] != null)
+{
+    @* 私廚創建 基本資料未填妥 *@
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-lg-12 alert1 mb-2">
+                        <i class="fa fa-exclamation-circle waitstatus"
+                           style="font-size: 28px;line-height: 60px;"></i><br>
+                        <h5 class="waitstatus">@TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_ChefCreate]</h5>
+                        <a href="@Url.Action("memberinfo")" class="dialog-a">前往基本資料</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

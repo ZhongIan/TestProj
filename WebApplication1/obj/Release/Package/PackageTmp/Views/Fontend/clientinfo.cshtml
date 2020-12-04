@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "客戶資訊";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section styles {
+    <style>
+        .clientinfo-bg {
+            width: 250px;
+            left: 0;
+            background-color: #8f8f8f;
+            padding: 14px;
+            padding-bottom: 13px;
+        }
+    </style>
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### clientinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="card-middle">
+                        <div class="col-12 d-flex flex-wrap mt-5 card-style">
+                            <img class="img-style2" src="/Content/img/bg-img/r1.jpg" alt="">
+                            <div class="card-bg2">
+                                <h6>真實姓名</h6>
+                                <div class="mb-2 mt-3"><b class="mr-5">暱　　稱</b><span>羊羊</span></div>
+                                <div class="mb-2"><b class="mr-5">電　　話</b><span>0911-111-111</span></div>
+                                <div class="mb-2"><b class="mr-5">電子郵件</b><span>test@gmail.com</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### clientinfo End ##### -->

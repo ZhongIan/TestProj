@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "新增 - 販售項目 - 菜色";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### memberinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="picbg mt-5 mb-2">
+                                <img id="foodimg" class="img-style"
+                                     src="/Content/img/nopic.jpg"></img>
+                            </div>
+                            <div class="col-12" style="margin-top:400px;">
+                                <label class="mr-5 input-font2">上傳照片</label>
+                                <input type="file" class="form-control" id="file" multiple
+                                       accept="image/gif, image/png, image/jpg, image/jpeg"
+                                       style="padding-left: 100px;" required>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <input type="text" class="form-control" id="pname" placeholder="菜色名稱" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <textarea name="productinfo" class="form-control" id="chef-summary" cols="30"
+                                          rows="10" placeholder="詳細菜色內容" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### memberinfo End ##### -->
+
+
+@section scripts {
+    <script>
+        $("#file").change(function () {
+            readURL(this);
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#foodimg").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

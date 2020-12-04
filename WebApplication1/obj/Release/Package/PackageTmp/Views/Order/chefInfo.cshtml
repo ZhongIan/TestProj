@@ -1,0 +1,137 @@
+﻿
+@model WebApplication1.ViewModels.Order.v私廚資訊VM
+
+
+@{
+    ViewBag.Title = "私廚簡介";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### chefinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                            <th colspan="2" class="text-center">
+                                <div class="single-best-receipe-area mb-30 mt-5">
+                                    <img class="img-style" src="@Model.私廚照片" alt="">
+                                    <div class="receipe-content">
+                                        <h5><b>@Model.私廚姓名</b></h5>
+                                        <div class="ratings">
+                                            @{
+                                                for (int i = 0; i < 5; i++)
+                                                {
+                                                    if (i < Model.私廚評級)
+                                                    {
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="width: 100px;"><b>電子郵件</b></td>
+                            <td>@Model.電子郵件</td>
+                        </tr>
+                        <tr>
+                            <td><b>服務地區</b></td>
+                            <td>@Model.服務地區</td>
+                        </tr>
+                        <tr>
+                            <td><b>餐飲風格</b></td>
+                            <td>@Model.餐飲風格</td>
+                        </tr>
+                        <tr>
+                            <td><b>服務項目</b></td>
+                            <td>@Model.服務種類</td>
+                        </tr>
+                        <tr>
+                            <td><b>簡　　介</b></td>
+                            <td>
+                                @Model.私廚簡介
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- ##### service Start ##### -->
+                    <section class="best-receipe-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="text-center mt-50 mb-50">
+                                        <h4>私廚服務</h4>
+                                        <hr class="hr">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- product Area -->
+                                @{
+                                    foreach (var item in Model.項目清單)
+                                    {
+                                        <div class="col-12 col-sm-6 col-lg-4 mb-30">
+                                            <div class="card">
+                                                <a href="@Url.Action("salesItem",new { fPID=item.fPID })">
+                                                    <img src="@item.項目照片" class="card-img-top">
+                                                    <div class="pinfo-bottom fixed-bottom fixed-left pt-2 pb-2 single-best-receipe-area">
+                                                        <table class="table2">
+                                                            <tr>
+                                                                <td class="text-left">
+                                                                    <span class="chef-name-w">@item.項目名稱</span>
+                                                                    <br>
+                                                                    <span class="font-w">@item.風格-@item.服務種類</span>
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    <span class="font-w">NT$@item.價格</span>
+                                                                    <div class="receipe-content star-position">
+                                                                        <div class="ratings">
+                                                                            @{
+                                                                                for (int i = 0; i < 5; i++)
+                                                                                {
+                                                                                    if (i < Model.私廚評級)
+                                                                                    {
+                                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- ##### service End ##### -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### chefinfo End ##### -->

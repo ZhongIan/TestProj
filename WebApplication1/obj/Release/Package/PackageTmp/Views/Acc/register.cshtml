@@ -1,0 +1,83 @@
+﻿@model WebApplication1.ViewModels.Acc.v註冊簡易VM
+
+@{
+    ViewBag.Title = "註冊";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### Register Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    @using (Html.BeginForm(
+                            "register",
+                            "Acc",
+                            FormMethod.Post
+                         ))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+
+                            <div class="col-12 mt-5">
+                                @Html.EditorFor(model => model.帳號, new { htmlAttributes = new { @class = "form-control", @placeholder = "帳號", @maxlength = "15" } })
+                                @Html.ValidationMessageFor(model => model.帳號, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-12 mt-2">
+                                @Html.EditorFor(model => model.密碼, new { htmlAttributes = new { @class = "form-control", @placeholder = "密碼", @maxlength = "20" } })
+                                @Html.ValidationMessageFor(model => model.密碼, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-12 mt-2">
+                                @Html.EditorFor(model => model.確認密碼, new { htmlAttributes = new { @class = "form-control", @placeholder = "確認密碼", @maxlength = "20" } })
+                                @Html.ValidationMessageFor(model => model.確認密碼, "", new { @class = "text-danger" })
+                            </div>
+                            <div id="msg" class="msg-style2"></div>
+                            <div class="col-12 mt-2">
+                                @Html.EditorFor(model => model.電子信箱, new { htmlAttributes = new { @class = "form-control", @placeholder = "E-mail" } })
+                                @Html.ValidationMessageFor(model => model.電子信箱, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit" id="btn">註冊</button>
+                            </div>
+                            <div class="col-12 text-right mt-4">
+                                <span>
+                                    已經有帳號了？點擊 <a href="@Url.Action("login")" class="single-contact-information">
+                                        <h6>登入</h6>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Register End ##### -->
+
+@section scripts {
+    <script>
+        {
+            function checkpw() {
+                var pw1 = $('input[id=password1]').val();
+                var pw2 = $('input[id=password2]').val();
+                if (pw1 != pw2) {
+                    $('#msg').html('密碼與確認密碼不一致。');
+                    $("#btn").attr("disabled", true);
+                }
+                else {
+                    $('#msg').html('');
+                    $("#btn").attr("disabled", false);
+                }
+
+            }
+        }
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

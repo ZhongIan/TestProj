@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "註冊";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### Register Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="@Url.Action("registersuccess", "Fontend")" method="post">
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <input type="text" class="form-control" id="account" placeholder="帳號" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="password" class="form-control" id="password1" placeholder="密碼"
+                                       required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="password" class="form-control" id="password2" placeholder="確認密碼"
+                                       onchange="checkpw()" required>
+                            </div>
+                            <div id="msg" class="msg-style2"></div>
+                            <div class="col-12 mt-2">
+                                <input type="email" class="form-control" id="email" placeholder="電子郵件" required>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit" id="btn">註冊</button>
+                            </div>
+                            <div class="col-12 text-right mt-4">
+                                <span>
+                                    已經有帳號了？點擊 <a href="@Url.Action("registersuccess", "Fontend")" class="single-contact-information">
+                                        <h6>登入</h6>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Register End ##### -->
+
+@section scripts {
+    <script>
+        function checkpw() {
+            var pw1 = $('input[id=password1]').val();
+            var pw2 = $('input[id=password2]').val();
+            if (pw1 != pw2) {
+                $('#msg').html('密碼與確認密碼不一致。');
+                $("#btn").attr("disabled", true);
+            }
+            else {
+                $('#msg').html('');
+                $("#btn").attr("disabled", false);
+            }
+
+        }
+    </script>
+}

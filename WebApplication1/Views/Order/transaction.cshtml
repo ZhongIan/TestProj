@@ -1,0 +1,335 @@
+﻿@model WebApplication1.ViewModels.Order.v交易紀錄VM
+@{
+    ViewBag.Title = "交易紀錄";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### transaction Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container p-0 mt-5 mb-5">
+        <span class="ml-4 mr-4"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>點數餘額　@Model.點數餘額</span>
+        <a href="@Url.Action("buyPoint","Order")">
+            <span style="color: #ffa943;">
+                <i class="fa fa-plus"
+                   aria-hidden="true"></i>　儲值點數
+            </span>
+        </a>
+    </div>
+    <div class="container">
+        <div class="delicious-tabs-content">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">全部</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">未完成</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">待評價</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false">已完成</a>
+                </li>
+            </ul>
+
+            <div class="tab-content mb-80" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                    <div class="delicious-tab-content">
+                        <!-- Tab Text 全部 -->
+                        <div class="delicious-tab-text">
+                            @{
+
+                                foreach (var item in Model.交易紀錄)
+                                {
+                                    if (item.行為 == "儲值")
+                                    {
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td><span></span></td>
+                                                <td rowspan="2" class="addpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>儲值點數</span></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    }
+                                    else if (item.行為 == "消費")
+                                    {
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶預訂.GetHashCode().ToString())
+                                                        {
+                                                            @:等待服務
+                                                        }
+                                                        else if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.私廚確認_開放客戶評價.GetHashCode().ToString())
+                                                        {
+                                                            @* 客戶確認_客戶評價 *@
+                                                            <a href="@Url.Action("evaluate", "Order", new { fOID = item.訂單ID })"><span class="redstatus">完成確認前往評價<i class="fa fa-question-circle-o" aria-hidden="true" title="5天後未完成評價，將自動評為5顆星並撥款給私廚。"></i></span></a>
+                                                        }
+                                                        else if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶確認_完成評價.GetHashCode().ToString())
+                                                        {
+                                                            <span class="bluestatus">已完成評價 </span>
+                                                        }
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                <td rowspan="2" class="lesspoint"><i class="fa fa-minus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>消費 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("chefInfo", "Order", new { fCID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+                                    else if (item.行為 == "收益")
+                                    {
+
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                @{
+                                                    if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶預訂.GetHashCode().ToString())
+                                                    {
+                                                        <td rowspan="2" class="statussytle">
+                                                            <span class="waitstatus">待服務 <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
+                                                            @* 私廚完成服務  *@
+                                                            <a href="@Url.Action("finish", "Order", new { fOID = item.訂單ID })"><span class="redstatus">完成服務 <i class="fa fa-question-circle-o" aria-hidden="true" title="若已完成服務項目，請點擊「完成服務」，變更客戶的交易狀態後，客戶才能於平台給予您評價。若未點擊「完成服務」，將視為尚未服務。"></i></span></a>
+
+                                                            <br>@item.預定日期
+                                                        </td>
+                                                        @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                        <td rowspan="2" class="waitpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+
+                                                    }
+                                                    else if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.私廚確認_開放客戶評價.GetHashCode().ToString())
+                                                    {
+                                                        <td rowspan="2" class="statussytle">
+                                                            <span class="waitstatus">完成未被評價</span>
+                                                            <br>@item.預定日期
+                                                        </td>
+                                                        @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                        <td rowspan="2" class="waitpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                                    }
+                                                    else if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶確認_完成評價.GetHashCode().ToString())
+                                                    {
+                                                        <td rowspan="2" class="statussytle">
+                                                            <span class="bluestatus">完成並獲得評價</span>
+                                                            <br>@item.預定日期
+                                                        </td>
+                                                        @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                        <td rowspan="2" class="addpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                                    }
+                                                }
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>收益 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("clientInfo", "Order", new { fUID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                    <div class="delicious-tab-content">
+                        <!-- Tab Text 未完成 -->
+                        <div class="delicious-tab-text">
+                            @{
+                                foreach (var item in Model.交易紀錄_未完成)
+                                {
+                                    if (item.行為 == "消費")
+                                    {
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶預訂.GetHashCode().ToString())
+                                                        {
+                                                            @:等待服務
+                                                        }
+
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="lesspoint"><i class="fa fa-minus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="tbrecord_tb"><span>消費 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("chefInfo", "Order", new { fCID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+                                    else if (item.行為 == "收益")
+                                    {
+
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶預訂.GetHashCode().ToString())
+                                                        {
+                                                            <span class="waitstatus">待服務 <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
+                                                            @* 私廚完成服務  *@
+                                                            <a href="@Url.Action("finish", "Order", new { fOID = item.訂單ID })"><span class="redstatus">完成服務 <i class="fa fa-question-circle-o" aria-hidden="true" title="若已完成服務項目，請點擊「完成服務」，變更客戶的交易狀態後，客戶才能於平台給予您評價。若未點擊「完成服務」，將視為尚未服務。"></i></span></a>
+                                                        }
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="waitpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>收益 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("clientInfo", "Order", new { fUID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                    <div class="delicious-tab-content">
+                        <!-- Tab Text 待評價 -->
+                        <div class="delicious-tab-text">
+                            @{
+                                foreach (var item in Model.交易紀錄_待評價)
+                                {
+                                    if (item.行為 == "消費")
+                                    {
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.私廚確認_開放客戶評價.GetHashCode().ToString())
+                                                        {
+                                                            @* 客戶確認_客戶評價 *@
+                                                            <a href="@Url.Action("evaluate", "Order", new { fOID = item.訂單ID })"><span class="redstatus">完成確認前往評價<i class="fa fa-question-circle-o" aria-hidden="true" title="5天後未完成評價，將自動評為5顆星並撥款給私廚。"></i></span></a>
+                                                        }
+
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="lesspoint"><i class="fa fa-minus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="tbrecord_tb"><span>消費 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("chefInfo", "Order", new { fCID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+                                    else if (item.行為 == "收益")
+                                    {
+
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.私廚確認_開放客戶評價.GetHashCode().ToString())
+                                                        {
+                                                            <span class="waitstatus">完成未被評價</span>
+                                                        }
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="waitpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>收益 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("clientInfo", "Order", new { fUID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab--4">
+                    <div class="delicious-tab-content">
+                        <!-- Tab Text 已完成 -->
+                        <div class="delicious-tab-text">
+                            @{
+                                foreach (var item in Model.交易紀錄_已完成)
+                                {
+                                    if (item.行為 == "消費")
+                                    {
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶確認_完成評價.GetHashCode().ToString())
+                                                        {
+                                                            <span class="bluestatus">已完成評價 </span>
+                                                        }
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="lesspoint"><i class="fa fa-minus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="tbrecord_tb"><span>消費 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("chefInfo", "Order", new { fCID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+                                    else if (item.行為 == "收益")
+                                    {
+
+                                        <table class="tbrecord">
+                                            <tr>
+                                                <td><span class="span_left">@item.日期</span></td>
+                                                <td rowspan="2" class="statussytle">
+                                                    @{
+                                                        if (item.狀態 == WebApplication1.Models.Common.e訂單狀態.客戶確認_完成評價.GetHashCode().ToString())
+                                                        {
+                                                            <span class="bluestatus">完成並獲得評價</span>
+                                                        }
+                                                    }
+                                                    <br>@item.預定日期
+                                                </td>
+                                                @* 點數顏色變更 waitpoint addpoint lesspoint *@
+                                                <td rowspan="2" class="addpoint"><i class="fa fa-plus" style="margin-right: 10px;"></i>@item.點數 點</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbrecord_tb"><span>收益 - <a href="@Url.Action("salesItem",new { fPID=item.項目ID })">@item.項目名稱</a> - <a href="@Url.Action("clientInfo", "Order", new { fUID = item.聯絡人ID })">@item.聯絡人</a></span></td>
+                                            </tr>
+                                        </table>
+                                    }
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### transaction End ##### -->

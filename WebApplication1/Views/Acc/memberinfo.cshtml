@@ -1,0 +1,133 @@
+﻿@model WebApplication1.ViewModels.Acc.v基本資料VM
+
+@{
+    ViewBag.Title = "編輯基本資料";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### memberinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    @using (Html.BeginForm(
+                        "memberinfo",
+                        "Acc",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }
+                    ))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.fUID)
+
+                        <div class="row">
+                            <!--放我的資料欄位-->
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="picbg mt-5 mb-2">
+                                <img id="memberimg" class="img-style"
+                                     src="@Model.f會員照片" onerror="this.src='https://icon-library.com/images/no-image-icon/no-image-icon-5.jpg'" style="margin-bottom: 0px">
+                                <label class="btn delicious-btn nobord" for="file" style="width:300px;">上傳圖片</label>
+                                <input class="hide" id="file" type="file" style="display:none" name="image" multiple accept="image/gif, image/png, image/jpg, image/jpeg" />
+                            </div>
+
+
+
+                            <div class="col-12 " style="margin-top:400px;"></div><!--先留著 不然圖片會跑掉-->
+
+                            <div class="col-12 mt-5" style="margin-top:400px;"></div><!--先留著 不然圖片會跑掉-->
+                            <div class="col-md-12">
+                                @Html.LabelFor(Model => Model.f姓名, htmlAttributes: new { @class = "mr-5 input-font2" })
+                                @Html.EditorFor(model => model.f姓名, new { htmlAttributes = new { @class = "form-control", placeholder = "姓名", @style = "padding-left: 100px;" } })
+                                @Html.ValidationMessageFor(model => model.f姓名, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-12">
+                                @Html.LabelFor(Model => Model.f暱稱, htmlAttributes: new { @class = "mr-5 input-font2" })
+                                @Html.EditorFor(model => model.f暱稱, new { htmlAttributes = new { @class = "form-control", placeholder = "暱稱", @style = "padding-left: 100px;" } })
+                                @Html.ValidationMessageFor(model => model.f暱稱, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="col-md-12">
+                                @Html.LabelFor(Model => Model.f電話, htmlAttributes: new { @class = "mr-5 input-font2" })
+                                @Html.EditorFor(model => model.f電話, new { htmlAttributes = new { @class = "form-control", placeholder = "電話", @style = "padding-left: 100px;", } })
+                                @Html.ValidationMessageFor(model => model.f電話, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="col-md-12">
+                                @Html.LabelFor(Model => Model.f生日, htmlAttributes: new { @class = "mr-5 input-font2" })
+                                @Html.EditorFor(model => model.f生日, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control",
+                                   placeholder = "生日",
+                                   max = "2020-12-31",
+                                   min = "1900-01-01",
+                                   @style = "padding-left: 100px;"
+                               }
+                           })
+                                @Html.ValidationMessageFor(model => model.f生日, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                @Html.LabelFor(Model => Model.f居住縣市, htmlAttributes: new { @class = "mr-5 input-font2 inputadd" })
+                                @* f居住縣市 *@
+                                @Html.DropDownListFor(model => model.f居住縣市, Model.Select地區, new { @id = "service-area", @class = "form-control-option inputadd2" })
+                                @Html.ValidationMessageFor(model => model.f居住縣市, "", new { @class = "text-danger" })
+                            </div>
+
+                            @* 地址 = f居住縣市 + f詳細地址 *@
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.f詳細地址, htmlAttributes: new { @class = "mr-5 input-font2" })
+                                @Html.EditorFor(model => model.f詳細地址, new { htmlAttributes = new { @class = "form-control", @style = "padding-left: 100px;" } })
+                                @Html.ValidationMessageFor(model => model.f詳細地址, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <label class="mr-5 input-font2">E-mail</label>
+                                @Html.EditorFor(model => model.f電子郵件, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail", @style = "padding-left: 100px;" } })
+                                @Html.ValidationMessageFor(model => model.f電子郵件, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <input type="submit" value="儲存" class="btn delicious-btn mt-30" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### memberinfo End ##### -->
+
+
+
+@section scripts {
+    <script>
+        {
+            $("#file").change(function () {
+                readURL(this);
+            });
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#memberimg").attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        }
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

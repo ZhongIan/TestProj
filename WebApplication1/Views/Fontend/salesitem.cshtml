@@ -1,0 +1,315 @@
+﻿
+@{
+    ViewBag.Title = "品項名稱";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section styles{
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### pic and form start ##### -->
+<div class="receipe-post-area section-padding-80-0">
+
+    <!-- Receipe Post Search -->
+    <div class="receipe-post-search mb-80">
+        <div class="container">
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="slick">
+                            <div>
+                                <img src="/Content/img/bg-img/bg6.jpg" class="img-style6">
+                            </div>
+                            <div>
+                                <img src="/Content/img/bg-img/bg4.jpg" class="img-style6">
+                            </div>
+                            <div>
+                                <img src="/Content/img/bg-img/bg7.jpg" class="img-style6">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <table class="product_detail table-border" style="width: 100%;">
+                            <tr>
+                                <td class="pt-4"><span class="span_font">NT$500/人</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input id="meeting" type="date" value="" class="dtpicker" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="select1" id="select2" >
+                                        <option value="1" disabled selected>時段</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                        <option value="1">午餐</option>
+                                        <option value="1">晚餐</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" min="1" value="1" placeholder="人數">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right pb-4">
+                                    <span class="span_font" style="vertical-align: middle;">=NT$3000</span>
+                                    <button type="submit" class="btn delicious-btn ml-3">購買</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ##### pic and form end ##### -->
+
+<div class="receipe-post-search mb-80">
+    <div class="container">
+        <form action="#" method="post">
+            <div class="row">
+                <div class="col-lg-4 receipe-content mb-4">
+                    <table>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td>
+                                <a href="@Url.Action("chefinfo","Fontend")"><h5>廚師姓名</h5></a>
+                                <div class="ratings" id="rate">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <br>
+                                <span style="line-height: 35px;"><i class="fa fa-map-marker"></i> 台北市、新北市</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-8 receipe-content">
+                    <table class="product_detail">
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i><span> 中式</span><i class="fa fa-tag ml-4"></i><span> 線上課程</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介私廚簡介</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-12 ">
+                    <div class="accordions mb-80 cpllaps_chef" id="accordion" role="tablist"
+                         aria-multiselectable="true">
+
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                            <h6>
+                                <a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                   data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    詳細介紹
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
+                            </h6>
+                            <div id="collapseOne" class="accordion-content collapse show ">
+                                <p>
+                                    套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容套餐介紹/課程內容
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                            <h6>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                                   data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">
+                                    菜色一介紹
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
+                            </h6>
+                            <div id="collapseTwo" class="accordion-content collapse">
+                                <p>菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹菜色一介紹</p>
+                            </div>
+                        </div>
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                            <h6>
+                                <a role="button" aria-expanded="true" aria-controls="collapseThree"
+                                   class="collapsed" data-parent="#accordion" data-toggle="collapse"
+                                   href="#collapseThree">
+                                    菜色二介紹
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
+                            </h6>
+                            <div id="collapseThree" class="accordion-content collapse">
+                                <p>菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹菜色二介紹</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-lg-12>
+                    <label class="comment">顧客評價</label>
+                </div>
+                <div class="col-lg-3 receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td3 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td>
+                            <td>
+                                <h5 href="#">顧客姓名</h5>
+                                <div class="ratings" id="rate">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-9 receipe-content">
+                    <table class="product_detail" style="vertical-align: middle; height: 150px;">
+                        <tr>
+                            <td style="text-align: left;">
+                                <p style="text-align: right;
+                                    padding-right: 10px; color:#b6b6b6 ;">2020-10-10</p>
+                                <span>這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價</span>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+                <div class="col-lg-3  receipe-content">
+
+                    <table>
+                        <tr>
+                            <td class="table_td3 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td>
+                            <td>
+                                <h5 href="#">顧客姓名</h5>
+                                <div class="ratings" id="rate">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-9 receipe-content">
+                    <table class="product_detail" style="vertical-align: middle; height: 150px;">
+                        <tr>
+                            <td style="text-align: left;">
+                                <p style="text-align: right;
+                                    padding-right: 10px; color:#b6b6b6 ;">2020-10-10</p>
+                                <span>這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價</span>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div class="col-lg-3  receipe-content">
+
+                    <table>
+                        <tr>
+                            <td class="table_td3 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td>
+                            <td>
+                                <h5 href="#">顧客姓名</h5>
+                                <div class="ratings" id="rate">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-9 receipe-content">
+                    <table class="product_detail" style="vertical-align: middle; height: 150px;">
+                        <tr>
+                            <td style="text-align: left;">
+                                <p style="text-align: right;
+                                    padding-right: 10px; color:#b6b6b6 ;">2020-10-10</p>
+                                <span>這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價這是客戶評價</span>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <script>
+        $('.slick').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: "<i class='fa fa-chevron-left prev ml-4' aria-hidden='true'></i>",
+            nextArrow: "<i class='fa fa-chevron-right next mr-4' aria-hidden='true'></i>"
+        });
+    </script>
+
+    <script>
+        if ($('[type="date"]').prop('type') != 'date') {
+
+            $('[type="date"]').datepicker();
+        }
+    </script>
+}

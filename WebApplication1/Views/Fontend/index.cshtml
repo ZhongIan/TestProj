@@ -1,0 +1,496 @@
+﻿
+@{
+    ViewBag.Title = "首頁";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+}
+
+@section Breadcumb {
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="hero spad set-bg" style="background-image: url('/Content/img/james-img/1.jpg');">
+        <div class="container">
+            <div class="receipe-post-area section-padding-80">
+
+                <!-- Receipe Post Search -->
+                <div class="receipe-post-search search_bc">
+                    <div class="container">
+                        <div class="searchfont">Choose What You Want！</div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-2">
+                                <select name="select1" id="select1">
+                                    <option disabled selected>風格</option>
+                                    <option value="1">中式</option>
+                                    <option value="2">法式</option>
+                                    <option value="3">日式</option>
+                                    <option value="4">義式</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <select name="select1" id="select2">
+                                    <option disabled selected>服務選項</option>
+                                    <option value="1">私廚到你家</option>
+                                    <option value="2">線上課程</option>
+                                    <option value="3">線下課程</option>
+
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-2 ">
+                                <input id="meeting" type="date" value="" class="dtpicker" style="padding-left: 12px;" />
+
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <select name="select1" id="select2">
+                                    <option value="1" disabled selected>時段</option>
+                                    <option value="1">午餐</option>
+                                    <option value="1">晚餐</option>
+
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <select name="select1" id="select2">
+                                    <option disabled selected>服務地區</option>
+                                    <option value="台北市">台北市</option>
+                                    <option value="新北市">新北市</option>
+                                    <option value="基隆市">基隆市</option>
+                                    <option value="桃園市">桃園市</option>
+                                    <option value="新竹市">新竹市</option>
+                                    <option value="新竹縣">新竹縣</option>
+                                    <option value="苗栗縣">苗栗縣</option>
+                                    <option value="台中市">台中市</option>
+                                    <option value="彰化縣">彰化縣</option>
+                                    <option value="南投縣">南投縣</option>
+                                    <option value="雲林縣">雲林縣</option>
+                                    <option value="嘉義市">嘉義市</option>
+                                    <option value="嘉義縣">嘉義縣</option>
+                                    <option value="台南市">台南市</option>
+                                    <option value="高雄市">高雄市</option>
+                                    <option value="屏東縣">屏東縣</option>
+                                    <option value="宜蘭縣">宜蘭縣</option>
+                                    <option value="花蓮縣">花蓮縣</option>
+                                    <option value="台東縣">台東縣</option>
+                                    <option value="澎湖縣">澎湖縣</option>
+                                    <option value="金門縣">金門縣</option>
+                                    <option value="連江縣">連江縣</option>
+                                </select>
+                            </div>
+
+                            <div class=" col-lg-2 ">
+                                <button type="submit" class="btn delicious-btn" data-toggle="modal"
+                                        data-target="#modal1" style="width: 100%;">
+                                    Search
+                                </button>
+                                <!--彈跳視窗-->
+
+
+                            </div>
+                        </div>
+                        <div class="searchfont mt-5">Or Enter Key Words！</div>
+
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <input type="text" name="searchstring" class="form-control" placeholder="請輸入商品名稱"
+                                       style="margin-bottom: 20px;">
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="submit" class="btn delicious-btn" data-toggle="modal"
+                                        data-target="#modal1" style="width: 100%;">
+                                    Search
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+
+<!-- ##### Best Receipe Area Start ##### -->
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center mt-50 mb-50">
+                    <h4>熱門套餐</h4>
+                    <hr class="hr">
+                </div>
+            </div>
+        </div>
+        <div class="slick">
+            <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+                <a href="#">
+                    <div class="picautosize">
+                        <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg1.jpg);"></div>
+                    </div>
+                    <div class="receipe-content">
+                        <table>
+                            <tr>
+                                <td class="table_td1" style="width: 150px;">
+                                    <h5><b>套餐名稱</b></h5>
+                                </td>
+                                <td class="table_td2 pr-4">
+                                    <h5 style="font-weight: normal;">NT$500</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table_td1 pl-4">
+                                    <img id="headimg" class="circle-img-style"
+                                         src="/Content/img/james-img/chefhead.jpg">
+                                </td>
+                                <td class="table_td2  pr-4">
+                                    <div>
+                                        <h5 class="ml-3 mt-2">私廚名稱</h5>
+                                    </div>
+                                    <div class="ratings mb-1 ml-3">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                </a>
+            </div>
+        </div>
+        <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+            <a href="#">
+                <div class="picautosize">
+                    <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg2.jpg);"></div>
+                </div>
+                <div class="receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td1" style="width: 150px;">
+                                <h5><b>套餐名稱</b></h5>
+                            </td>
+                            <td class="table_td2 pr-4">
+                                <h5 style="font-weight: normal;">NT$500</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td class="table_td2  pr-4">
+                                <div>
+                                    <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                </div>
+                                <div class="ratings mb-1 ml-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+        <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+            <a href="#">
+                <div class="picautosize">
+                    <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg3.jpg);"></div>
+                </div>
+                <div class="receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td1" style="width: 150px;">
+                                <h5><b>套餐名稱</b></h5>
+                            </td>
+                            <td class="table_td2 pr-4">
+                                <h5 style="font-weight: normal;">NT$500</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td class="table_td2  pr-4">
+                                <div>
+                                    <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                </div>
+                                <div class="ratings mb-1 ml-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+        <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+            <a href="#">
+                <div class="picautosize">
+                    <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg6.jpg);"></div>
+                </div>
+                <div class="receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td1" style="width: 150px;">
+                                <h5><b>套餐名稱</b></h5>
+                            </td>
+                            <td class="table_td2 pr-4">
+                                <h5 style="font-weight: normal;">NT$500</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td class="table_td2  pr-4">
+                                <div>
+                                    <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                </div>
+                                <div class="ratings mb-1 ml-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+        <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+            <a href="#">
+                <div class="picautosize">
+                    <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg5.jpg);"></div>
+                </div>
+                <div class="receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td1" style="width: 150px;">
+                                <h5><b>套餐名稱</b></h5>
+                            </td>
+                            <td class="table_td2 pr-4">
+                                <h5 style="font-weight: normal;">NT$500</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td class="table_td2  pr-4">
+                                <div>
+                                    <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                </div>
+                                <div class="ratings mb-1 ml-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+        <div class="single-best-receipe-area hoverstyle mb-30 slickpadding">
+            <a href="#">
+                <div class="picautosize">
+                    <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg1.jpg);"></div>
+                </div>
+                <div class="receipe-content">
+                    <table>
+                        <tr>
+                            <td class="table_td1" style="width: 150px;">
+                                <h5><b>套餐名稱</b></h5>
+                            </td>
+                            <td class="table_td2 pr-4">
+                                <h5 style="font-weight: normal;">NT$500</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="/Content/img/james-img/chefhead.jpg">
+                            </td>
+                            <td class="table_td2  pr-4">
+                                <div>
+                                    <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                </div>
+                                <div class="ratings mb-1 ml-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- ##### Best Receipe Area End ##### -->
+
+
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="text-center mt-50 mb-50">
+            <h4>熱門課程</h4>
+            <hr class="hr">
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="slick2">
+                <div class="slickpadding">
+                    <a href="#">
+                        <div class="home__room__item set-bg"
+                             style="background-image: url('/Content/img/bg-img/insta2.jpg');">
+                            <div class="home__room__title">
+                                <div class="home__room__title">
+                                    <span class="shadow">
+                                        <h4 class="pb-3">課程名稱</h4>
+                                    </span>
+                                    <sup><i class="fa fa-star " style="font-size:48px;color:yellow"></i></sup>
+                                    <span class="shadow">
+                                        <h2>4.5</h2>
+                                    </span>
+                                    <h5 class="hotclass">中式 - 線上教室 - NT$500</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="slickpadding">
+                    <a href="#">
+                        <div class="home__room__item set-bg" style="background-image: url('/Content/img/bg-img/r5.jpg');">
+                            <div class="home__room__title">
+                                <div class="home__room__title">
+                                    <span class="shadow">
+                                        <h4 class="pb-3">課程名稱</h4>
+                                    </span>
+                                    <sup><i class="fa fa-star " style="font-size:48px;color:yellow"></i></sup>
+                                    <span class="shadow">
+                                        <h2>4.5</h2>
+                                    </span>
+                                    <h5 class="hotclass">中式 - 線上教室 - NT$500</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="slickpadding">
+                    <a href="#">
+                        <div class="home__room__item set-bg"
+                             style="background-image: url('/Content/img/bg-img/insta2.jpg');">
+                            <div class="home__room__title">
+                                <span class="shadow">
+                                    <h4 class="pb-3">課程名稱</h4>
+                                </span>
+                                <sup><i class="fa fa-star " style="font-size:48px;color:yellow"></i></sup>
+                                <span class="shadow">
+                                    <h2>4.5</h2>
+                                </span>
+                                <h5 class="hotclass">中式 - 線上教室 - NT$500</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="slickpadding">
+                    <a href="#">
+                        <div class="home__room__item set-bg" style="background-image: url('/Content/img/bg-img/r5.jpg');">
+                            <div class="home__room__title">
+                                <span class="shadow">
+                                    <h4 class="pb-3">課程名稱</h4>
+                                </span>
+                                <sup><i class="fa fa-star " style="font-size:48px;color:yellow"></i></sup>
+                                <span class="shadow">
+                                    <h2>4.5</h2>
+                                </span>
+                                <h5 class="hotclass">中式 - 線上教室 - NT$500</h5>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <script>
+        $('.slick').slick({
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ],
+            prevArrow: "<i class='fa fa-chevron-left prev' aria-hidden='true'></i>",
+            nextArrow: "<i class='fa fa-chevron-right next' aria-hidden='true'></i>"
+        });
+        $('.slick2').slick({
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            responsive: [
+                {
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ],
+            prevArrow: "<i class='fa fa-chevron-left prev' aria-hidden='true'></i>",
+            nextArrow: "<i class='fa fa-chevron-right next' aria-hidden='true'></i>"
+        });
+    </script>
+}
+

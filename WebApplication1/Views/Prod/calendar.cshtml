@@ -1,0 +1,184 @@
+﻿@model WebApplication1.ViewModels.Prod.v可預訂時間VM
+
+@{
+    ViewBag.Title = "設定可預訂時間";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@section Breadcumb {
+    @{Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<div class="container contact-area section-padding-0-80">
+    @using (Html.BeginForm("calendar", "Prod", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(vm => vm.fCID)
+
+        <div id="calendar">
+            <h4>2020年11月</h4>
+            <a href="##" rel="external nofollow" class="a1">
+                <i class="fa fa-chevron-left"
+                   aria-hidden="true"></i>
+            </a>
+            <a href="##" rel="external nofollow" class="a2">
+                <i class="fa fa-chevron-right"
+                   aria-hidden="true"></i>
+            </a>
+            <ul class="week">
+                <li>日</li>
+                <li>一</li>
+                <li>二</li>
+                <li>三</li>
+                <li>四</li>
+                <li>五</li>
+                <li>六</li>
+            </ul>
+            <ul class="dateList"></ul>
+            <div><p class="text-center mt-4"><i class="fa fa-square-o" aria-hidden="true"></i> 不可預定　<i class="fa fa-square" style="color:#5ab496" aria-hidden="true"></i> 可預定　<i class="fa fa-square" style="color:#ffa943" aria-hidden="true"></i> 已被預定(不可修改)</p></div>
+        </div>
+        @* 取得新可預訂時間字串 ArrGetNewTime *@
+        <input type="hidden" class="form-control" id="addtime" name="ArrGetNewTime" value="">
+        @* 取得待刪除時間字串 ArrGetDeletedTime *@
+        <input type="hidden" class="form-control" id="canceltime" name="ArrGetDeletedTime" value="">
+        <div class="col-12 text-center">
+            <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+        </div>
+
+    }
+</div>
+
+<div id="heartsuccess" class="popstyle" style="display: none;">
+    <i class="fa fa-heart redstatus"
+       style="font-size: 28px;line-height: 60px;"></i>
+    <h5><span class="redstatus">儲存成功</span></h5>
+</div>
+
+
+
+@section scripts {
+    <script>
+
+        $(function () {
+            var EnableStr = '@String.Join("|", Model.ArrEnable)';
+
+            var disableStr = '@String.Join("|", Model.ArrUnable)';
+
+            var available = EnableStr.split('|');
+            //var available = ["2020-11-18-1", "2020-11-19-2", "2020-11-20-1", "2020-11-4-2", "2020-11-5-2", "2020-11-6-1"]; //資料庫給有空的時間
+            var booked = disableStr.split('|');
+            //var booked = ["2020-11-25-1", "2020-11-26-2", "2020-11-27-1"]; //資料庫給已被預訂的時間
+
+            //必要的資料
+            //今天的年 月 日 ；本月的總天數；本月第一天是周幾？？？
+            var iNow = 0;
+
+            function run(n) {
+
+                var oDate = new Date(); //定義時間
+                oDate.setMonth(oDate.getMonth() + n);//設定月份
+                var year = oDate.getFullYear(); //年
+                var month = oDate.getMonth(); //月
+                var today = oDate.getDate(); //日
+
+                //計算本月有多少天
+                var allDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+
+                //判斷閏年
+                if (month == 1) {
+                    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                        allDay = 29;
+                    }
+                }
+
+                //判斷本月第一天是星期幾
+                oDate.setDate(1); //時間調整到本月第一天
+                var week = oDate.getDay(); //讀取本月第一天是星期幾
+
+                //console.log(week);
+                $(".dateList").empty();//每次清空
+                //插入空白
+
+                for (var i = 0; i < week; i++) {
+                    $(".dateList").append("<li></li>");
+                }
+
+                //日期插入到dateList
+                for (var i = 1; i <= allDay; i++) {
+                    $(".dateList").append(`
+<li>
+    <input type="button" value="${i}" class="nobuttonstyly"><br>
+    <input type="button" value="午" class="nobuttonstyly period" id="${year}A${month + 1}A${i}-1">
+    <input type="button" value="晚" class="nobuttonstyly period" id="${year}A${month + 1}A${i}-2">
+</li>`)
+                }
+
+                for (let item of available) {
+                    item = item.replaceAll('/', 'A');
+                    $(`#${item}`).attr('class', 'period nobuttonstyly periodclicked');
+
+                }
+                for (let item of booked) {
+                    item = item.replaceAll('/', 'A');
+                    $(`#${item}`).attr('class', 'period nobuttonstyly booked');
+
+                }
+
+                var allinputvalue = "";
+                var canceltime = "";
+                $('.period').click(function () {
+                    var inputvalue = this.id.replaceAll('A','/');
+
+                    if ($(this).hasClass('periodclicked') && available.includes(inputvalue)) {
+                        $(this).attr('class', 'period nobuttonstyly');
+                        allinputvalue = allinputvalue.replace(`${inputvalue},`, "");
+                        canceltime += inputvalue + ",";
+                        $('#addtime').val(allinputvalue);
+                        $('#canceltime').val(canceltime);
+                    }
+                    else if (!$(this).hasClass('periodclicked') && available.includes(inputvalue)) {
+                        $(this).attr('class', 'period nobuttonstyly periodclicked');
+                        canceltime = canceltime.replace(`${inputvalue},`, "");
+                        $('#canceltime').val(canceltime);
+                    }
+
+                    else if ($(this).hasClass('periodclicked')) {
+                        $(this).attr('class', 'period nobuttonstyly');
+                        allinputvalue = allinputvalue.replace(`${inputvalue},`, "");
+                        $('#addtime').val(allinputvalue);
+                    }
+                    else if ($(this).hasClass('booked')) {
+
+                    }
+                    else {
+                        $(this).attr('class', 'period nobuttonstyly periodclicked');
+                        allinputvalue += inputvalue + ",";
+                        canceltime = canceltime.replace(`${inputvalue},`, "");
+                        $('#canceltime').val(canceltime);
+                        $('#addtime').val(allinputvalue);
+                    }
+
+                });
+
+                //定義標題日期
+                $("#calendar h4").text(year + "年" + (month + 1) + "月");
+            };
+            run(0);
+
+            $(".a1").click(function () {
+                iNow--;
+                run(iNow);
+            });
+
+            $(".a2").click(function () {
+                iNow++;
+                run(iNow);
+            })
+
+
+        });
+        @* 成功訊息 非同步 modal (有空做) *@
+
+    </script>
+}

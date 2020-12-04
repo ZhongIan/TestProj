@@ -1,0 +1,71 @@
+﻿@model WebApplication1.ViewModels.Order.v儲值點數VM
+
+
+@{
+    ViewBag.Title = "儲值點數";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section styles {
+    <style>
+        .input-font {
+            position: absolute;
+            font-size: 12px;
+            line-height: 52px;
+            color: #6c757d;
+            right: 3rem;
+        }
+    </style>
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### BuyPoint Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    @using (Html.BeginForm(
+                    "buyPoint",
+                    "Order",
+                    FormMethod.Post
+                    ))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <div class="input-font">點</div>
+                                @Html.EditorFor(model => model.f點數, new { htmlAttributes = new { @class = "form-control", @id = "pointqty", @placeholder = "需求數量", @oninput = "dollar()", @style = "padding-right: 60px;" } })
+                            </div>
+                            <div class="row mt-2">
+                                <div style="padding-left: 4rem">換算現金</div>
+                                <div style="position: absolute; right:3rem" id="dollars">NT$</div>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">送出</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### BuyPoint End ##### -->
+
+@section scripts {
+    <script>
+        function dollar() {
+            var dollar = $('input[id=pointqty]').val();
+            $('#dollars').html(`<span>NT$${dollar}</span>`);
+        }
+    </script>
+    @* 驗證用 *@
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

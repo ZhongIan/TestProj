@@ -1,0 +1,345 @@
+﻿@model WebApplication1.ViewModels.Order.v項目訂購VM
+
+@{
+    ViewBag.Title = Model.項目名稱;
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section styles{
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="~/Content/css/lightbox.css" rel="stylesheet" />
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### pic and form start ##### -->
+<div class="receipe-post-area section-padding-80-0">
+
+    <!-- Receipe Post Search -->
+    <div class="receipe-post-search mb-80">
+        <div class="container">
+            @using (Html.BeginForm(
+    "salesItem",
+    "Order",
+    FormMethod.Post
+    ))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.fPID)
+                @Html.HiddenFor(model => model.fPID)
+                @Html.HiddenFor(model => model.價格)
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="slick">
+                            <a href="@Model.項目照片" data-lightbox="group1">
+                                <img src="@Model.項目照片" class="img-style6">
+                            </a>
+                            @{
+                                foreach (var item in Model.菜品清單)
+                                {
+                                    <a href="@item.f菜品照片" data-lightbox="group1">
+                                        <img src="@item.f菜品照片" class="img-style6">
+                                    </a>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <table class="product_detail table-border" style="width: 100%;">
+                            <tr>
+                                <td class="pt-4">
+                                    <span class="span_font">NT$</span>
+                                    <span id="price" class="span_font">@Model.價格</span>
+                                    <span class="span_font">/人</span>
+                                </td>
+                            </tr>
+                            @*<tr>
+                                    <td>
+                                        <input id="meeting" type="date" value="" class="dtpicker" />
+                                    </td>
+                                </tr>*@
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(model => model.fTID, Model.Select日期, new { @class = "form-control-option" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @* 數量 *@
+                                    <input id="numpeople" name="數量" type="number" min="1" value="1" placeholder="人數" oninput="totalprice()">
+                                    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right pb-4">
+                                    <span class="span_font totalprice" style="vertical-align: middle;"></span>
+                                    @{
+                                        if (Session[WebApplication1.Models.Common.CDictionary.SK_LOGINED_USER_ID] == null)
+                                        {
+                                            <button type="button" class="btn delicious-btn ml-3" data-toggle="modal"
+                                                    data-target="#modal1">
+                                                購買
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn delicious-btn ml-3">購買</button>
+                                        }
+                                    }
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- ##### pic and form end ##### -->
+@* style="z-index:0;position:relative;" 注意其他影響 *@
+<div class="receipe-post-search mb-80" style="z-index:0;position:relative;">
+    <div class="container">
+        <form action="#" method="post">
+            <div class="row">
+                <div class="col-lg-4 receipe-content mb-4">
+                    <table>
+                        <tr>
+                            <td class="table_td1 pl-4">
+                                <img id="headimg" class="circle-img-style"
+                                     src="@Model.私廚照片">
+                            </td>
+                            <td>
+                                <a href="@Url.Action("chefInfo","Order", new { fCID = Model.fCID})"><h5>@Model.私廚姓名</h5></a>
+                                <div class="ratings" id="rate">
+                                    @{
+                                        for (int i = 0; i < 5; i++)
+                                        {
+                                            if (i < Model.私廚評級)
+                                            {
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            }
+                                        }
+                                    }
+                                </div>
+                                (@Model.私廚評級筆數)
+                                <br>
+                                <span style="line-height: 35px;"><i class="fa fa-map-marker"></i> @Model.服務地區</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-8 receipe-content">
+                    <table class="product_detail">
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i><span> @Model.風格 </span><i class="fa fa-tag ml-4"></i><span>@Model.服務種類</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>@Model.私廚簡介</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-12 ">
+                    <div class="accordions mb-80 cpllaps_chef" id="accordion" role="tablist"
+                         aria-multiselectable="true">
+
+                        <!-- Single Accordian Area -->
+                        <div class="panel single-accordion">
+                            <h6>
+                                <a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                   data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    詳細介紹
+                                    <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                </a>
+                            </h6>
+                            <div id="collapseOne" class="accordion-content collapse show">
+                                <p>
+                                    @Model.項目內容
+                                </p>
+                            </div>
+                        </div>
+                        @{
+                            foreach (var item in Model.菜品清單)
+                            {
+                                <!-- Single Accordian Area -->
+                                <div class="panel single-accordion">
+                                    <h6>
+                                        <a role="button" class="collapsed" aria-expanded="false" aria-controls="collapse-@item.fVID"
+                                           data-parent="#accordion" data-toggle="collapse" href="#collapse-@item.fVID">
+                                            @item.f菜品名稱
+                                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapse-@item.fVID" class="accordion-content collapse">
+                                        <p>@item.f菜品簡介</p>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                </div>
+                <div class=col-lg-12>
+                    <label class="comment">顧客評價 (@Model.顧客評價清單.Count())</label>
+                </div>
+                @{
+                    foreach (var item in Model.顧客評價清單)
+                    {
+                        <div class="col-lg-3 receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td3 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="@item.顧客照片">
+                                    </td>
+                                    <td>
+                                    <td>
+                                        <h5 href="#">@item.暱稱</h5>
+                                        <div class="ratings" id="rate">
+                                            @{
+                                                for (int i = 0; i < 5; i++)
+                                                {
+                                                    if (i < item.顧客評級)
+                                                    {
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-9 receipe-content">
+                            <table class="product_detail" style="vertical-align: middle; height: 150px;">
+                                <tr>
+                                    <td style="text-align: left;">
+                                        <p style="text-align: right;
+                                    padding-right: 10px; color:#b6b6b6 ;">@item.評價日期</p>
+                                    <span>@item.評價內容</span>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                }
+                }
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Session[WebApplication1.Models.Common.CDictionary.SK_LOGINED_USER_ID] == null)
+{
+    <!--彈跳視窗-->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-lg-12 alert1 mb-2">
+                        <i class="fa fa-exclamation-circle waitstatus"
+                           style="font-size: 28px;line-height: 60px;"></i><br>
+                        <h5 class="waitstatus">請先登入會員方可購買</h5>
+                        <a href="@Url.Action("login","Acc")" class="dialog-a">立即登入</a>｜<a href="@Url.Action("register","Acc")" class="dialog-a">前往註冊</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_SalesItem] != null)
+{
+    @* 點數餘額不足 *@
+    <!--彈跳視窗-->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-lg-12 alert1 mb-2">
+                        <i class="fa fa-exclamation-circle waitstatus"
+                           style="font-size: 28px;line-height: 60px;"></i><br>
+                        <h5 class="waitstatus">@TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_SalesItem]</h5>
+                        <a href="@Url.Action("buyPoint")" class="dialog-a">前往儲值點數</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@section scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <script src="~/Scripts/frontend/lightbox.js"></script>
+    <script>
+        $('.slick').slick({
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: "<i class='fa fa-chevron-left prev ml-4' aria-hidden='true'></i>",
+            nextArrow: "<i class='fa fa-chevron-right next mr-4' aria-hidden='true'></i>"
+        });
+    </script>
+
+    @*  時間 控制項
+        <script>
+            if ($('[type="date"]').prop('type') != 'date') {
+
+                $('[type="date"]').datepicker();
+            }
+        </script>
+    *@
+
+<script>
+        var price = @Model.價格;
+
+        $(function () {
+            $('.totalprice').append(`=NT$${price}`);
+        });
+
+
+        function totalprice() {
+
+            var numpeople = $('input[id=numpeople]').val();
+            console.log(numpeople);
+            var totalprice = numpeople * price;
+            $('.totalprice').html(`=NT$${totalprice}`);
+        };
+
+        @if (TempData[WebApplication1.Models.Common.CDictionary.TK_Msg_SalesItem] != null)
+        {
+            @* 點數餘額不足 *@
+           @: $('.modal').modal('show');
+        }
+
+</script>
+}
+
+

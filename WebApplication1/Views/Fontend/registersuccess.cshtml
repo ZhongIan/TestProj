@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "註冊成功";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### Register Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-5">
+                <span>將於<span id="seconds"></span>秒後為您跳轉至登入頁面。</span><br><br>
+                <span>
+                    或者自行點擊<a href="@Url.Action("register", "Fontend")" class="single-contact-information">
+                        <h6>登入</h6>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Register End ##### -->
+
+@section scripts {
+
+    <script>
+        {
+            let t = 6;
+            function reciprocal() {
+                t -= 1;
+                document.getElementById('seconds').innerHTML = t;
+                if (t == 0) {
+                    location.href = "@Url.Action("register", "Fontend")"; //之後交易紀錄好要改連結
+                }
+                setTimeout("reciprocal()", 1000);
+            }
+            window.onload = reciprocal;
+        }
+    </script>
+}

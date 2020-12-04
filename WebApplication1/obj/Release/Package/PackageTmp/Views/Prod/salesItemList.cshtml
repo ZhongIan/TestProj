@@ -1,0 +1,100 @@
+﻿
+@model WebApplication1.ViewModels.Prod.v私廚販售項目清單VM
+@{
+    ViewBag.Title = "販售項目";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<div class="container mt-5 mb-5">
+
+    <a href="@Url.Action("productCreate")">
+        <span class="newitem">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            新增販售項目
+        </span>
+    </a>
+</div>
+<div class="container">
+
+    <div class="accordions mb-80" id="accordion" role="tablist" aria-multiselectable="true">
+
+        <!-- Single Accordian Area -->
+        @foreach (var item in Model.prods)
+        {
+            <div class="panel single-accordion">
+
+                <h6>
+                    <a role="button" class="collapsed" aria-expanded="false" aria-controls="collapse-@item.product.fPID" data-toggle="collapse"
+                       data-parent="#accordion" href="#collapse-@item.product.fPID">
+                        @item.product.f項目名稱
+                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                    </a>
+                </h6>
+                <div class="col-12 mt-2">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+                <div id="collapse-@item.product.fPID" class="accordion-content collapse">
+                    <table>
+                        <tr>
+                            <td rowspan="3" style="width:20%; padding: 0; min-width: 200px;" class="img-style5">
+                                <img src="@item.product.f項目照片" style="padding: 0; min-width: 200px; height:auto; overflow: hidden;" />
+                            </td>
+                            <td colspan="2" class="product_td">
+                                <h6>主要內容</h6>
+                            </td>
+                            <td rowspan="3" class="text-left pl-4 table-border" style="width: 10%;">
+                                <div class="ingredients">
+                                    <div class="custom-control custom-checkbox ">
+                                        @* 上架 *@
+                                        <input type="hidden" name="fPID" value="@item.product.fPID" />
+                                        @Html.CheckBox("f上架" , item.product.f上架, new { @value = "true", @class = "custom-control-input", @id = "customCheck1" })
+                                        <label class="custom-control-label" for="customCheck-@item.product.fPID"><a>上架</a></label>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action("dishCreate","Prod", new { fPID = item.product.fPID })" class="pd1px"><i class="fa fa-plus"></i><span class="pl-2"> 菜色</span></a><br>
+                                <a href="@Url.Action("productEdit", "Prod", new { fPID = item.product.fPID })" class="pd1px"><i class="fa fa-edit"></i><span class="pl-2">編輯</span></a><br>
+                                <a href="@Url.Action("productDelete", "Prod", new { fPID = item.product.fPID })" class="pd1px" onclick="confirm('你確定要刪除嗎?')"><i class="fa fa-trash"></i><span class="pl-2"> 刪除</span></a>
+                            </td>
+                        </tr>
+                        <td class="product_td" style="width: 100px;min-width: 100px;"><b>價格:</b></td>
+                        <td class="product_td">NT$@item.product.f價格/人</td>
+                        <tr>
+                            <td class="product_td table-bottom" style="width:10%;"><b>詳細內容:</b></td>
+                            <td class="product_td table-bottom">@item.product.f項目內容</td>
+                        </tr>
+                        @foreach (var dishitem in item.dish)
+                        {
+                            <tr>
+                                <td rowspan="3" style="padding: 0;" class="img-style5">
+                                    <img src="@dishitem.f菜品照片" style="padding: 0; min-width: 200px; height:auto; overflow: hidden;" />
+                                </td>
+                                <td colspan="2" class="product_td">
+                                    <h6>菜色</h6>
+                                </td>
+                                <td rowspan="3" class="text-left pl-4 table-border">
+
+                                    <a href="@Url.Action("dishEdit", "Prod", new { fVID = dishitem.fVID }, null)"><i class="fa fa-edit"></i><span class="pl-2">編輯</span></a><br>
+                                    <a href="@Url.Action("dishDelete", "Prod", new { fVID = dishitem.fVID })" onclick="confirm('你確定要刪除嗎?')"><i class="fa fa-trash"></i><span class="pl-2"> 刪除</span></a>
+                                </td>
+                            </tr>
+                            <td class="product_td"><b>菜名:</b></td>
+                            <td class="product_td">@dishitem.f菜品名稱</td>
+                            <tr>
+                                <td class="product_td table-bottom"><b>菜色內容:</b></td>
+                                <td class="product_td table-bottom">@dishitem.f菜品簡介</td>
+                            </tr>
+
+                        }
+                    </table>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+

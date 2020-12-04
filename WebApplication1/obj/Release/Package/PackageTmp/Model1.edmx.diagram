@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="694bbe68b4684c0bb25ca18985718e7a" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.t我的最愛" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t私廚可預訂時間" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t服務種類" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t訂單" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t風格" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t販售項目" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t菜品" Width="1.5" PointX="10.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t會員" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.t儲值點數" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK_t我的最愛_Tot販售項目" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t我的最愛_Tot會員" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t販售項目_Tot服務種類" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t訂單_Tot販售項目" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t訂單_Tot會員" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t販售項目_Tot風格" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t菜品_Tot販售項目" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_t儲值點數_Tot會員" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Database1Model.t私廚" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="Database1Model.FK_t私廚_Tot會員" />
+        <AssociationConnector Association="Database1Model.FK_t私廚可預訂時間_Tot私廚" />
+        <AssociationConnector Association="Database1Model.FK_t販售項目_Tot私廚" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

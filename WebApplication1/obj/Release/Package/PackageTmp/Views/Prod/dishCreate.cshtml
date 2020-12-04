@@ -1,0 +1,81 @@
+﻿@model WebApplication1.ViewModels.Prod.v菜品VM
+@{
+    ViewBag.Title = "新增 - " + Model.項目名稱 + " - 菜色";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+@using (Html.BeginForm(
+    "dishCreate",
+    "Prod",
+    FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(vm => vm.fPID)
+    @Html.HiddenFor(vm => vm.fVID)
+    <!-- ##### memberinfo Start ##### -->
+    <div class="contact-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                               
+                                <div class="picbg mt-5 mb-2">
+                                    <img id="foodimg" class="img-style"
+                                         src="@Model.f菜品照片"  onerror="this.src='https://icon-library.com/images/no-image-icon/no-image-icon-5.jpg'" style="margin-bottom: 0px">
+                                    <label class="btn delicious-btn" for="file" style="width:300px;">上傳圖片</label>
+                                    <input class="hide" id="file" type="file" style="display:none" name="image" multiple accept="image/gif, image/png, image/jpg, image/jpeg" />
+                                </div>
+
+                                <div class="col-12 " style="margin-top:400px;"></div><!--先留著 不然圖片會跑掉-->
+
+                                <div class="col-12 mt-5">
+                                    @Html.EditorFor(model => model.f菜品名稱, new { htmlAttributes = new { @class = "form-control", @placeholder = "菜色名稱" } })
+                                    @Html.ValidationMessageFor(model => model.f菜品名稱, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 mt-2">
+                                    @*<textarea name="productinfo" class="form-control" id="chef-summary" cols="30"
+                                        rows="10" placeholder="詳細菜色內容" required></textarea>*@
+                                    @Html.TextAreaFor(model => model.f菜品簡介, new { @class = "form-control", @placeholder = "詳細菜色內容", @id = "chef-summary", @cols = 30, @rows = 10 })
+                                    @Html.ValidationMessageFor(model => model.f菜品簡介, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 mt-2">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn delicious-btn mt-30" type="submit" value="Create">儲存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- ##### memberinfo End ##### -->
+
+
+@section scripts {
+    <script>
+        $("#file").change(function () {
+            readURL(this);
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#foodimg").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

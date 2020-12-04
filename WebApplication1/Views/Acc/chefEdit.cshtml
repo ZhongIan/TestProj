@@ -1,0 +1,49 @@
+﻿@model WebApplication1.ViewModels.Acc.v私廚VM
+
+@{
+    ViewBag.Title = "私廚編輯";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(vm => vm.fUID)
+
+    <div class="contact-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 mt-5">
+                                    @* f服務地區 *@
+                                    @Html.DropDownListFor(model => model.f服務地區, Model.Select地區, new { @id = "service-area", @class = "form-control-option inputadd3" })
+                                </div>
+                                @* f私廚簡介 *@
+                                <div class="col-12 mt-4">
+                                    @Html.TextAreaFor(vm=>vm.f私廚簡介,new { @class="form-control", @id="chef-summary", @cols="30", @rows="10",
+                                   @placeholder="私廚簡介" })
+                                    @*<textarea name="f私廚簡介" class="form-control" id="chef-summary" cols="30" rows="10"
+                                        placeholder="私廚簡介" required></textarea>*@
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

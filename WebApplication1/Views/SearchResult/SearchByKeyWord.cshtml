@@ -1,0 +1,278 @@
+﻿@model WebApplication1.Models.SearchResult.CSearchResult
+
+@{
+    ViewBag.Title = "SearchByKeyWord";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Content/img/bg-img/breadcumb1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>搜尋結果</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="receipe-post-area section-padding-80-0">
+
+            <!-- Receipe Post Search -->
+            @using (Html.BeginForm(
+                            "SearchByCondition",
+                            "SearchResult",
+                            FormMethod.Get,
+                            new { @class = "container receipe-post-search p-0" }
+                            ))
+            {
+                <div class="row">
+                    <div class="col-12 col-lg-2">
+                        @Html.DropDownListFor(x => x.地區, Model.f地區, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.地區, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        @Html.DropDownListFor(x => x.服務種類, Model.f服務種類, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.服務種類, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-12 col-lg-2 ">
+                        <input id="meeting" type="date" value="@Model.f日期" class="dtpicker" name="f日期" style="padding-left: 12px;" />
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        @Html.DropDownListFor(x => x.風格, Model.f風格, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.風格, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        @Html.DropDownListFor(x => x.時段, Model.f時段, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.時段, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class=" col-lg-2 ">
+                        <button type="submit" class="btn delicious-btn" data-toggle="modal"
+                                data-target="#modal1" style="width: 100%;">
+                            Search
+                        </button>
+                        <!--彈跳視窗-->
+                    </div>
+                </div>
+            }
+
+            <div class="mt-3 mb-3 text-center"><span style="color: #525252; font-weight: bold;">OR</span></div>
+
+            @using (Html.BeginForm(
+                "SearchByKeyWord",
+                "SearchResult",
+                FormMethod.Post
+                ))
+            {
+                <div class="row">
+                    <div class="col-lg-10">
+                        @*輸入關鍵字搜尋*@
+                        @Html.EditorFor(model => model.txtkeyword, new
+                        {
+                            htmlAttributes = new
+                   {
+                        @id = "txt1",
+                       @class = " form-control",
+                       @placeholder = "請輸入商品名稱",
+                       @style = "margin-bottom: 20px;"
+                   }
+                   })
+                        @*<input type="text" name="txtkeyword" class="form-control" placeholder="請輸入商品名稱" style="margin-bottom: 20px;">*@
+
+                        @Html.ValidationMessageFor(model => model.txtkeyword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="submit" class="btn delicious-btn"
+                                style="width: 100%; " id="btn1">
+                            Search
+                        </button>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
+
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="row">
+            @{foreach (var item in Model.搜尋結果)
+                {
+                    <!-- Single Best Receipe Area -->
+                    <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                        <a href="@Url.Action("salesItem","Order", new { fPID=item.fPID })">
+                            <div class="single-best-receipe-area mb-50">
+                                <div class="picautosize">
+                                    <div class="img-style4" style="background-image: url(@item.f項目照片);"></div>
+
+                                    <div class="overlay">
+                                        @{if (item.fis我的最愛 == 0)
+                                            {
+                                                <a href="#"><i class="fa fa-heart fa-2x " id="@item.fPID"></i></a>
+                                            }
+                                            else
+                                            {
+
+                                                <a href="#"><i class="fa fa-heart fa-2x heartclicked" id="@item.fPID"></i></a>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="receipe-content">
+                                    <table>
+                                        <tr>
+                                            <td class="table_td1" style="width: 150px;">
+                                                <h5><b>@item.f項目名稱</b></h5>
+                                            </td>
+                                            <td class="table_td2 pr-4">
+                                                <h5 style="font-weight: normal;">NT$@item.f價格</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_td1 pl-4">
+                                                <img id="headimg" class="circle-img-style"
+                                                     src="@item.f會員照片">
+                                            </td>
+                                            <td class="table_td2  pr-4">
+                                                <div>
+                                                    <h5 class="ml-3 mt-2">@item.f私廚姓名</h5>
+                                                </div>
+                                                <div class="ratings mb-1 ml-3">
+                                                    @{
+                                                        for (int i = 0; i < 5; i++)
+                                                        {
+                                                            if (i < item.f私廚評級)
+                                                            {
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            }
+                                                            else
+                                                            {
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            }
+                                                        }
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+@if (Session[WebApplication1.Models.Common.CDictionary.SK_LOGINED_USER_ID] == null)
+{
+    <!--彈跳視窗-->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-lg-12 alert1 mb-2">
+                        <i class="fa fa-exclamation-circle waitstatus"
+                           style="font-size: 28px;line-height: 60px;"></i><br>
+                        <h5 class="waitstatus">請先登入會員方可購買</h5>
+                        <a href="@Url.Action("login","Acc")" class="dialog-a">立即登入</a>｜<a href="@Url.Action("register","Acc")" class="dialog-a">前往註冊</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+
+    <div id="heartsuccess" class="popstyle" style="display: none;">
+        <i class="fa fa-heart redstatus"
+           style="font-size: 28px;line-height: 60px;"></i>
+        <h5><span class="redstatus">成功加入我的最愛</span></h5>
+    </div>
+
+    <div id="heartcancel" class="popstyle" style="display: none;">
+        <i class="fa fa-heart waitstatus"
+           style="font-size: 28px;line-height: 60px;"></i>
+        <h5><span class="waitstatus">成功取消我的最愛</span></h5>
+    </div>
+}
+
+
+
+@section scripts {
+    @if (Session[WebApplication1.Models.Common.CDictionary.SK_LOGINED_USER_ID] == null)
+    {
+        <script>
+            $('.fa-heart').click(function () {
+                $('.modal').modal('show');
+            });
+        </script>
+    }
+    else
+    {
+        <script>
+             $('.fa-heart').click(function () {
+            var whichheart = this.id;
+            if ($(this).hasClass('heartclicked')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("modifyFavorite", "Acc")',
+                    data: { fPID: whichheart},
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        $('#' + whichheart).attr('class', 'fa fa-heart fa-2x');
+                        $("#heartcancel").show().delay(1000).hide(300);
+                    },
+                    error: function (xhr, textstatus, data) {
+                        alert(data);
+                    }
+                })
+            }
+            else {
+                $.ajax({
+                type: 'POST',
+                url: '@Url.Action("modifyFavorite", "Acc")',
+                data: {fPID: whichheart},
+                dataType: 'json',
+                    success: function (data, status, xhr) {
+                        $('#' + whichheart).attr('class', 'fa fa-heart fa-2x heartclicked');
+                        $("#heartsuccess").show().delay(1000).hide(300);
+                    },
+                    error: function (xhr, textstatus, data) {
+                        alert(data);
+                    }
+                })
+            }
+        });
+        </script>
+    }
+
+
+    <script>
+        if ($('[type="date"]').prop('type') != 'date') {
+            $('[type="date"]').datepicker();
+        }
+
+        // 前端 檢查 關鍵字 有無資料
+        $('#btn1').click(function () {
+            if ($('#txt1').val() == '') {
+                $('#btn1').attr("disabled", true)
+            }
+        });
+        $('#txt1').focus(function () {
+            $('#btn1').attr("disabled", false)
+        });
+
+        // <!-- Modal -->
+        // $('.modal').modal('show');
+    </script>
+}
+

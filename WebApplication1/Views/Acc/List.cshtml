@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebApplication1.t會員>
+
+@{
+    ViewBag.Title = "會員清單(測試用)";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+
+
+
+
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <a href="@Url.Action("register")">
+            <button class="btn delicious-btn mt-30" type="submit" id="btn">新增</button>
+        </a>
+        <table class="table" style="overflow:scroll;">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.fUID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f帳號)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f密碼)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f電子郵件)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f姓名)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f暱稱)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f電話)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f生日)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f詳細地址)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f居住縣市)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f會員照片)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f點數)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.f權限)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fUID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f帳號)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f密碼)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f電子郵件)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f姓名)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f暱稱)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f電話)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f生日)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f詳細地址)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f居住縣市)
+                    </td>
+                    <td>
+                        <img width="100" height="70" src="@item.f會員照片" onerror="this.src='https://icon-library.com/images/no-image-icon/no-image-icon-5.jpg'" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f點數)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f權限)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { fUID = item.fUID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

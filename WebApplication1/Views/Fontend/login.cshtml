@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "登入";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <input type="text" class="form-control" id="account" placeholder="帳號" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="password" class="form-control" id="password" placeholder="密碼" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">登入</button>
+                            </div>
+                            <div class="col-12 text-right mt-4">
+                                <span>還沒有帳號嗎？點擊 <a href="@Url.Action("register","Fontend")" class="single-contact-information"><h6>註冊</h6></a></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

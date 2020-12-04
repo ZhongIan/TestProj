@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Content/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    @* Add styles *@
+    @RenderSection("styles", required: false)
+
+</head>
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="delicious-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="@Url.Action("Index","Home")"><span class="logo-font">Chef's Foody</span></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="@Url.Action("Index","Home")">首頁</a></li>
+                                    <li><a href="#">關於我們</a></li>
+                                    <li><a href="#">服務項目</a></li>
+                                    @{
+                                        if (Session[WebApplication1.Models.Common.CDictionary.SK_LOGINED_USER_ID] == null)
+                                        {
+                                            <li>@Html.ActionLink("登入", "login", "Acc")</li>
+                                            <li>@Html.ActionLink("註冊", "register", "Acc")</li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="#">會員中心</a>
+                                                <ul class="dropdown">
+                                                    <li>@Html.ActionLink("會員中心", "center", "Acc")</li>
+                                                    <li>@Html.ActionLink("交易紀錄", "transaction", "Order")</li>
+                                                    <li>@Html.ActionLink("儲值點數", "buyPoint", "Order")</li>
+                                                    <li>@Html.ActionLink("我的最愛", "favorite", "Acc")</li>
+                                                </ul>
+                                            </li>
+                                            <li>@Html.ActionLink("登出", "logout", "Acc")</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    @RenderSection("Breadcumb", required: false)
+
+
+    @RenderBody()
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-light">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                    <!-- Footer Social Info -->
+                    <div class="footer-social-info text-right">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <!-- Copywrite -->
+                    <p>
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved
+                    </p>
+                    <!-- Footer Logo -->
+                    <div class="footer-logo">
+                        <a href="index.html"><span class="logo-font-footer">Chef's Foody</span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+    <!-- ##### Breadcumb Area End ##### -->
+    <footer></footer>
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <!-- Popper js -->
+    <!-- Bootstrap js -->
+    <!-- All Plugins js -->
+    <!-- Active js -->
+    @Scripts.Render("~/bundles/FontendJS")
+
+    @* Add scripts *@
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

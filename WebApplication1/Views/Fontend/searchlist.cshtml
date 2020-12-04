@@ -1,0 +1,378 @@
+﻿
+@{
+    ViewBag.Title = "搜尋結果";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Content/img/bg-img/breadcumb1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>搜尋結果</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="receipe-post-area section-padding-80-0">
+
+            <!-- Receipe Post Search -->
+            <form class="container receipe-post-search">
+
+                <div class="row">
+                    <div class="col-12 col-lg-2">
+                        <select name="select1" id="select1">
+                            <option disabled selected>風格</option>
+                            <option value="1">中式</option>
+                            <option value="2">法式</option>
+                            <option value="3">日式</option>
+                            <option value="4">義式</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <select name="select1" id="select2">
+                            <option disabled selected>服務選項</option>
+                            <option value="1">私廚到你家</option>
+                            <option value="2">線上課程</option>
+                            <option value="3">線下課程</option>
+
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-2 ">
+                        <input id="meeting" type="date" value="" class="dtpicker"
+                               style="padding-left: 12px; padding-right: 12px;" />
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <select name="select1" id="select2">
+                            <option value="1" disabled selected>時段</option>
+                            <option value="1">午餐</option>
+                            <option value="1">晚餐</option>
+
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <select name="select1" id="select2">
+                            <option disabled selected>服務地區</option>
+                            <option value="台北市">台北市</option>
+                            <option value="新北市">新北市</option>
+                            <option value="基隆市">基隆市</option>
+                            <option value="桃園市">桃園市</option>
+                            <option value="新竹市">新竹市</option>
+                            <option value="新竹縣">新竹縣</option>
+                            <option value="苗栗縣">苗栗縣</option>
+                            <option value="台中市">台中市</option>
+                            <option value="彰化縣">彰化縣</option>
+                            <option value="南投縣">南投縣</option>
+                            <option value="雲林縣">雲林縣</option>
+                            <option value="嘉義市">嘉義市</option>
+                            <option value="嘉義縣">嘉義縣</option>
+                            <option value="台南市">台南市</option>
+                            <option value="高雄市">高雄市</option>
+                            <option value="屏東縣">屏東縣</option>
+                            <option value="宜蘭縣">宜蘭縣</option>
+                            <option value="花蓮縣">花蓮縣</option>
+                            <option value="台東縣">台東縣</option>
+                            <option value="澎湖縣">澎湖縣</option>
+                            <option value="金門縣">金門縣</option>
+                            <option value="連江縣">連江縣</option>
+                        </select>
+                    </div>
+
+                    <div class=" col-lg-2 ">
+                        <button type="submit" class="btn delicious-btn" data-toggle="modal" data-target="#modal1"
+                                style="width: 100%;">
+                            Search
+                        </button>
+                        <!--彈跳視窗-->
+
+
+                    </div>
+                </div>
+                <div class="mt-3 mb-3 text-center"><span style="color: #525252; font-weight: bold;">OR</span></div>
+
+                <div class="row">
+                    <div class="col-lg-10">
+                        <input type="text" name="searchstring" class="form-control" placeholder="請輸入商品名稱"
+                               style="margin-bottom: 20px;">
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="submit" class="btn delicious-btn" data-toggle="modal" data-target="#modal1"
+                                style="width: 100%;">
+                            Search
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="row">
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                <a href="salesitem.html">
+                    <div class="single-best-receipe-area mb-50">
+                        <div class="picautosize">
+                            <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg2.jpg);"></div>
+                            <div class="overlay">
+                                <a href="#"><i class="fa fa-heart fa-2x" id="heart1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td1" style="width: 150px;">
+                                        <h5><b>套餐名稱</b></h5>
+                                    </td>
+                                    <td class="table_td2 pr-4">
+                                        <h5 style="font-weight: normal;">NT$500</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_td1 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="/Content/img/james-img/chefhead.jpg">
+                                    </td>
+                                    <td class="table_td2  pr-4">
+                                        <div>
+                                            <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                        </div>
+                                        <div class="ratings mb-1 ml-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                <a href="salesitem.html">
+                    <div class="single-best-receipe-area mb-50">
+                        <div class="picautosize">
+                            <div class="img-style4" style="background-image: url(/Content/img/bg-img/breadcumb2.jpg);"></div>
+                            <div class="overlay">
+                                <a href="#"><i class="fa fa-heart fa-2x" id="heart2"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td1" style="width: 150px;">
+                                        <h5><b>套餐名稱</b></h5>
+                                    </td>
+                                    <td class="table_td2 pr-4">
+                                        <h5 style="font-weight: normal;">NT$500</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_td1 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="/Content/img/james-img/chefhead.jpg">
+                                    </td>
+                                    <td class="table_td2  pr-4">
+                                        <div>
+                                            <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                        </div>
+                                        <div class="ratings mb-1 ml-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                <a href="salesitem.html">
+                    <div class="single-best-receipe-area mb-50">
+                        <div class="picautosize">
+                            <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg3.jpg);"></div>
+                            <div class="overlay">
+                                <a href="#"><i class="fa fa-heart fa-2x" id="heart3"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td1" style="width: 150px;">
+                                        <h5><b>套餐名稱</b></h5>
+                                    </td>
+                                    <td class="table_td2 pr-4">
+                                        <h5 style="font-weight: normal;">NT$500</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_td1 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="/Content/img/james-img/chefhead.jpg">
+                                    </td>
+                                    <td class="table_td2  pr-4">
+                                        <div>
+                                            <h5 class="ml-3 mt-2">私廚名稱</h5>
+                                        </div>
+                                        <div class="ratings mb-1 ml-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                <a href="salesitem.html">
+                    <div class="single-best-receipe-area mb-50">
+                        <div class="picautosize">
+                            <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg7.jpg);"></div>
+                            <div class="overlay">
+                                <a href="#"><i class="fa fa-heart fa-2x" id="heart4"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td1" style="width: 150px;">
+                                        <h5><b>套餐名稱</b></h5>
+                                    </td>
+                                    <td class="table_td2 pr-4">
+                                        <h5 style="font-weight: normal;">NT$500</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_td1 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="/Content/img/james-img/chefhead.jpg">
+                                    </td>
+                                    <td class="table_td2  pr-4">
+                                        <div>
+                                            <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                        </div>
+                                        <div class="ratings mb-1 ml-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Single Best Receipe Area -->
+            <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                <a href="salesitem.html">
+                    <div class="single-best-receipe-area mb-50">
+                        <div class="picautosize">
+                            <div class="img-style4" style="background-image: url(/Content/img/bg-img/bg5.jpg);"></div>
+                            <div class="overlay">
+                                <a href="#"><i class="fa fa-heart fa-2x" id="heart5"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="receipe-content">
+                            <table>
+                                <tr>
+                                    <td class="table_td1" style="width: 150px;">
+                                        <h5><b>套餐名稱</b></h5>
+                                    </td>
+                                    <td class="table_td2 pr-4">
+                                        <h5 style="font-weight: normal;">NT$500</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_td1 pl-4">
+                                        <img id="headimg" class="circle-img-style"
+                                             src="/Content/img/james-img/chefhead.jpg">
+                                    </td>
+                                    <td class="table_td2  pr-4">
+                                        <div>
+                                            <h5 class="ml-3 mt-2">私廚名稱私廚名稱</h5>
+                                        </div>
+                                        <div class="ratings mb-1 ml-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="heartsuccess" class="popstyle" style="display: none;">
+    <i class="fa fa-heart redstatus"
+       style="font-size: 28px;line-height: 60px;"></i>
+    <h5><span class="redstatus">成功加入我的最愛</span></h5>
+</div>
+
+<div id="heartcancel" class="popstyle" style="display: none;">
+    <i class="fa fa-heart waitstatus"
+       style="font-size: 28px;line-height: 60px;"></i>
+    <h5><span class="waitstatus">成功取消我的最愛</span></h5>
+</div>
+
+@section scripts {
+    <script>
+        if ($('[type="date"]').prop('type') != 'date') {
+            $('[type="date"]').datepicker();
+        }
+
+        $('.fa-heart').click(function () {
+            var whichheart = this.id;
+
+            if ($(this).hasClass('heartclicked')) {
+                $(this).attr('class', 'fa fa-heart fa-2x');
+                $("#heartcancel").show().delay(1000).hide(300);
+            }
+            else {
+                $(this).attr('class', 'fa fa-heart fa-2x heartclicked');
+                $("#heartsuccess").show().delay(1000).hide(300);
+            }
+
+        });
+
+                // <!-- Modal -->
+                // $('.modal').modal('show');
+    </script>
+}

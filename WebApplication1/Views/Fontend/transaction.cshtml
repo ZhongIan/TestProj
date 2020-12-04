@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "交易紀錄";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+
+<!-- ##### transaction Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container p-0 mt-5 mb-5">
+        <span class="ml-4 mr-4"><i class="fa fa-dot-circle-o" aria-hidden="true"></i></span>
+        <a href="@Url.Action("buyPoint","Order")">
+            <span style="color: #ffa943;">
+                <i class="fa fa-plus"
+                   aria-hidden="true"></i>　儲值點數
+            </span>
+        </a>
+    </div>
+    <div class="container">
+        <div class="delicious-tabs-content">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">全部</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">未完成</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">待評價</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false">已完成</a>
+                </li>
+            </ul>
+
+            <div class="tab-content mb-80" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                    <div class="delicious-tab-content">
+                        <!-- Tab Text 全部 -->
+                        <h1>Tab Text 全部</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                <div class="delicious-tab-content">
+                    <!-- Tab Text 未完成 -->
+                    <h1>Tab Text 未完成</h1>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                <div class="delicious-tab-content">
+                    <!-- Tab Text 待評價 -->
+                    <h1>Tab Text 待評價</h1>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab--4">
+                <div class="delicious-tab-content">
+                    <!-- Tab Text 已完成 -->
+                    <h1>Tab Text 待評價</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### transaction End ##### -->

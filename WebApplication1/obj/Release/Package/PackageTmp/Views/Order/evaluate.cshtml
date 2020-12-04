@@ -1,0 +1,157 @@
+﻿@model WebApplication1.ViewModels.Order.v評價VM
+@{
+    ViewBag.Title = "填寫評價";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="card-middle">
+                                <div class="col-12 d-flex flex-wrap mt-5 card-style">
+                                    <img id="memberimg" class="img-style" src="@Model.項目照片">
+                                    <div class="card-bg receipe-ratings">
+                                        <p class="mt-3">@Model.預定日期</p>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img id="headimg" class="circle-img-style"
+                                                         src="@Model.私廚照片">
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="ml-3 mt-2">@Model.私廚名稱</h5>
+                                                    </div>
+
+                                                    <div class="ratings mb-1 ml-3">
+                                                        @{
+                                                            for (int i = 0; i < 5; i++)
+                                                            {
+                                                                if (i < Model.私廚評級)
+                                                                {
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                }
+                                                            }
+                                                        }
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div>
+                                            <h6 class="mt-4">@Model.項目名稱</h6>
+                                        </div>
+                                        <div class="mt-2"><b>服務種類</b><span class="ml-3">@Model.服務種類</span></div>
+                                        <div class="mt-2"><b>價　　格</b><span class="ml-3">NT$ @Model.價格 /人</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @using (Html.BeginForm(
+                                "login",
+                                "Order",
+                                FormMethod.Post
+                             ))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @* v評價VM 訂單ID *@
+                                <input type="text" class="form-control" id="addtime" name="fOID" value="@Model.fOID" style="display: none;">
+                                @* v評價VM 價格 *@
+                                <input type="number" class="form-control" id="addtime" name="價格" value="@Model.價格" style="display: none;">
+
+                                <div class="col-12 receipe-ratings mt-5">
+                                    <div class="ratings">
+                                        <label class="ml-4 pl-1 mr-5">星星評價</label>
+                                        <span>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        </span>
+                                        <div id="msg" class="msg-style"></div>
+                                        @* v評價VM 評級 *@
+                                        <input type="number" name="評級" class="form-control" id="starscore" value=""
+                                               style="display:none;" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    @* v評價VM 評價內容 *@
+                                    <textarea name="評價內容" class="form-control" id="chef-summary" cols="30" rows="10"
+                                              placeholder="評價內容" required></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn delicious-btn mt-30" type="submit"
+                                            onclick="checkstar()">
+                                        儲存
+                                    </button>
+                                </div>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        {
+            $(function () {
+                var isClicked = false;
+                $('span i').hover(
+                    function () {
+                        if (!isClicked) {
+                            $(this).attr('class', 'fa fa-star');
+                            var index = $(this).index();
+
+                            for (var j = 0; j <= index; j++) {
+                                $('span i:nth-child(' + j + ')').attr('class', 'fa fa-star');
+                            }
+                        }
+                    }
+                    ,
+                    function () {
+                        if (!isClicked) {
+                            $('span i').attr('class', 'fa fa-star-o');
+                        }
+                    }
+                );
+
+                $('span i').click(function () {
+                    isClicked = true;
+                    var index = $(this).index();
+                    for (var j = 1; j <= index + 1; j++) {
+                        $('span i:nth-child(' + j + ')').attr('class', 'fa fa-star');
+                    }
+                    for (var j = index + 2; j <= 5; j++) {
+                        $('span i:nth-child(' + j + ')').attr('class', 'fa fa-star-o');
+                    }
+                    $('#starscore').val(index + 1);
+                    $("#msg").html("");
+                });
+            });
+
+            function checkstar() {
+                var starscore = $('input[id=starscore]').val();
+                if (starscore == '') {
+                    $('#msg').html('至少評價一顆星。');
+                    return false;
+                }
+            }
+        }
+    </script>
+}

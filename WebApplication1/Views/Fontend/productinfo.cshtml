@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "新增販售項目";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="picbg mt-5 mb-2">
+                                <img id="foodimg" class="img-style"
+                                     src="/Content/img/nopic.jpg"></img>
+                            </div>
+                            <div class="col-12" style="margin-top:400px;">
+                                <label class="mr-5 input-font2">上傳照片</label>
+                                <input type="file" class="form-control" id="file" multiple
+                                       accept="image/gif, image/png, image/jpg, image/jpeg"
+                                       style="padding-left: 100px;" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="text" class="form-control" id="pname" placeholder="項目名稱" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <select name="service-area" id="food-type" class="form-control-option" required>
+                                    <option disabled selected>餐飲風格</option>
+                                    <option value="1">中式</option>
+                                    <option value="2">日式</option>
+                                    <option value="3">義式</option>
+                                    <option value="3">法式</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <select name="service-area" id="service-type" class="form-control-option" required>
+                                    <option disabled selected>服務種類</option>
+                                    <option value="1">私廚到家</option>
+                                    <option value="2">線上教學</option>
+                                    <option value="3">線下教室</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <div class="input-font1">/人</div>
+                                <input type="number" min="0" max="100000" step="1" class="form-control" id="price"
+                                       placeholder="價格(NT$)" style="padding-right: 70px;" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <textarea name="productinfo" class="form-control" id="chef-summary" cols="30"
+                                          rows="10" placeholder="詳細販售內容" required></textarea>
+                            </div>
+                            <div class="col-12 receipe-content-area">
+                                <div class="ingredients">
+                                    <!-- Custom Checkbox -->
+                                    <div class="custom-control custom-checkbox" style="margin-left: 2rem;">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1" style="font-weight: 500; font-size: 12px; line-height: 30px;">是否上架</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $("#file").change(function () {
+            readURL(this);
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#foodimg").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

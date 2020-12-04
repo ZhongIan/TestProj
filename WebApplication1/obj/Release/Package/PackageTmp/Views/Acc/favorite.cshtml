@@ -1,0 +1,128 @@
+﻿@model IEnumerable<WebApplication1.ViewModels.Acc.v我的最愛VM>
+
+@{
+    ViewBag.Title = "我的最愛";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<section class="best-receipe-area">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <!-- Single Best Receipe Area -->
+                <div class="col-12 col-sm-6 col-lg-4 hoverstyle">
+                    <a href="@Url.Action("salesItem","Order", new { fPID=item.fPID })">
+                        <div class="single-best-receipe-area mb-50">
+                            <div class="picautosize">
+                                <div class="img-style4" style="background-image: url(@item.項目照片);"></div>
+                                <div class="overlay">
+                                    <a href="#"><i class="fa fa-heart fa-2x heartclicked" id="@item.fPID"></i></a>
+                                </div>
+                            </div>
+
+
+                            <div class="receipe-content">
+                                <table>
+                                    <tr>
+                                        <td class="table_td1" style="width: 150px;">
+                                            <h5><b>@item.項目名稱</b></h5>
+                                        </td>
+                                        <td class="table_td2 pr-4">
+                                            <h5 style="font-weight: normal;">NT$ @item.價格</h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table_td1 pl-4">
+                                            <img id="headimg" class="circle-img-style"
+                                                 src="@item.私廚照片"><!--私廚照片-->
+                                        </td>
+                                        <td class="table_td2  pr-4">
+                                            <div>
+                                                <h5 class="ml-3 mt-2">@item.私廚姓名</h5>
+                                            </div>
+                                            <div class="ratings mb-1 ml-3">
+                                                @{
+                                                    for (int i = 0; i < 5; i++)
+                                                    {
+                                                        if (i < item.私廚評級)
+                                                        {
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+<div id="heartsuccess" class="popstyle" style="display: none;">
+    <i class="fa fa-heart redstatus"
+       style="font-size: 28px;line-height: 60px;"></i>
+    <h5><span class="redstatus">成功加入我的最愛</span></h5>
+</div>
+
+<div id="heartcancel" class="popstyle" style="display: none;">
+    <i class="fa fa-heart waitstatus"
+       style="font-size: 28px;line-height: 60px;"></i>
+    <h5><span class="waitstatus">成功取消我的最愛</span></h5>
+</div>
+
+
+@section scripts {
+    <script>
+        $('.fa-heart').click(function () {
+            var whichheart = this.id;
+            if ($(this).hasClass('heartclicked')) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("modifyFavorite", "Acc")',
+                    data: { fPID: whichheart},
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        $('#' + whichheart).attr('class', 'fa fa-heart fa-2x');
+                        $("#heartcancel").show().delay(1000).hide(300);
+                    },
+                    error: function (xhr, textstatus, data) {
+                        alert(data);
+                    }
+                })
+            }
+            else {
+                $.ajax({
+                type: 'POST',
+                url: '@Url.Action("modifyFavorite", "Acc")',
+                data: {fPID: whichheart},
+                dataType: 'json',
+                    success: function (data, status, xhr) {
+                        $('#' + whichheart).attr('class', 'fa fa-heart fa-2x heartclicked');
+                        $("#heartsuccess").show().delay(1000).hide(300);
+                    },
+                    error: function (xhr, textstatus, data) {
+                        alert(data);
+                    }
+                })
+            }
+        });
+    </script>
+}
+
+

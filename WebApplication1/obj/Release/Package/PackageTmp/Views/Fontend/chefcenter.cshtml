@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "會員中心";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+
+<!-- ##### clientinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container p-0">
+        <table style="width: 100%;" class="mt-5 mb-3">
+            <tr>
+                <td style="width: 90%;">
+                    <span class="m-1 noclick">基本資料</span>
+                    <span class="ml-4 mr-4"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>　點數餘額：0點</span>
+                    <a href="buypoint.html">
+                        <span style="color: #ffa943;">
+                            <i class="fa fa-plus"
+                               aria-hidden="true"></i>　儲值點數
+                        </span>
+                    </a>
+                </td>
+                <td class="text-right" style="width: 10%;">
+                    <a href="memberinfo.html" style="right: 0;">
+                        <h5><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #8b8b8b;"></i></h5>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container single-best-receipe-area">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-4 p-0 ">
+                        <div class="picautosize">
+                            <div class="img-style3" style="background-image: url(/Content/img/bg-img/bg1.jpg);"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 card-bg3">
+                        <div class="mb-3"><span style="font-size: 16px;" class="mr-3"><b>真實姓名</b></span></div>
+                        <div class="mb-3"><b class="mr-5">暱　　稱</b><span>羊羊</span></div>
+                        <div class="mb-3"><b class="mr-5">電　　話</b><span>0911-111-111</span></div>
+                        <div class="mb-3"><b class="mr-5">電子郵件</b><span>test@gmail.com</span></div>
+                        <div class="mb-3"><b class="mr-5">生　　日</b><span>1991-9-9</span></div>
+                        <div class=""><b class="mr-5">地　　址</b><span>台北市信義區</span></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-0">
+        <table style="width: 100%;" class="mt-5 mb-3">
+            <tr>
+                <td style="width: 50%;"><span class="m-1 noclick">私廚簡介</span>
+                <td class="text-right" style="width: 50%;">
+                    <a href="chefedit.html" style="right: 0;">
+                        <h5><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #8b8b8b;"></i></h5>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-12 card-bg3">
+                <table style="line-height: 36px;">
+                    <tr>
+                        <td style="width: 130px;" class="pl-4"><b>服務地區</b></td>
+                        <td>台北市</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-4"><b>餐飲風格</b></td>
+                        <td>中式、日式</td>
+                    </tr>
+                    <tr>
+                        <td class="pl-4"><b>服務項目</b></td>
+                        <td>私廚到家、線上教學</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:text-top;" class="pl-4"><b>私廚簡介</b></td>
+                        <td class="pr-4">
+                            "簡單- 就是最完美的境界-達文西" (Leonardo da Vinci)
+
+                            在美國從事高級餐飲業超過四十年的Larry，來港之前是國際知名餐廳(加州)Alice Waters Restaurant, Chez
+                            Panisse的廚師；他曾為兩屆美國總統烹飪及在多家高尚食府和酒店當宴會策劃及廚師。
+
+                            Larry曾接受正統廚藝學院訓練，深諳各式西餐烹調技術，惟他對加州的烹調手法情有獨鍾。Larry的烹飪特色是要突顯食材本身的鮮味，以喚醒人們的味覺；他必先從食材著手 -
+                            挑選最新鮮及時令的食材，能用上有機、天然，甚至是野生的食物就更佳。在烹調方面，為保存食材的原味，Larry會利用最直接、簡單的方法 - 例如燒和烤。
+
+                            然而Larry不僅對食物執著，他更是一個徹頭徹尾的生活藝術家。為了提升自己的品酒道行，正當他的烹飪事業如日方中之際，他不惜抽身先後到俄勒岡州一間精品酒廠學藝，鑽研品酒知識
+                            - 從種植葡萄至巿場分銷，逐個細節深入研究；並於兩家公司作葡萄酒買手，以掌握整個行業運作。一晃就是7年。
+
+                            最意想不到的，是Larry的藝術造詣。早於70年代Larry已不斷追求其藝術理想，1997年於加州大學完成其藝術碩士課程，之後在美國舉辦過不下10場個人畫展。
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container p-0">
+        <table style="width: 100%;" class="mt-5 mb-3">
+            <tr>
+                <td><span class="m-1 noclick">服務設定</span>
+            </tr>
+        </table>
+
+
+        <div class="row delicious-buttons-area mb-80  text-center">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <a href="calendar.html" class="btn delicious-btn btn-4 m-1" style="width: 100%;">可預訂時間</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a href="#" class="btn delicious-btn btn-4 m-1" style="width: 100%;">販售項目</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### clientinfo End ##### -->

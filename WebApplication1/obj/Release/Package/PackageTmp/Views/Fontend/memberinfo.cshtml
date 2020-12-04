@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "編輯基本資料";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Breadcumb {
+    @{ Html.RenderPartial("~/Views/Shared/_Breadcumb一般.cshtml"); }
+}
+
+<!-- ##### memberinfo Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="row">
+
+                            <div class="picbg mt-5 mb-2">
+                                <img id="memberimg" class="img-style"
+                                     src="/Content/img/nopic.jpg"></img>
+                            </div>
+                            <div class="col-12" style="margin-top:400px;">
+                                <label class="mr-5 input-font2">上傳頭像</label>
+                                <input type="file" class="form-control" id="file" multiple
+                                       accept="image/gif, image/png, image/jpg, image/jpeg"
+                                       style="padding-left: 100px;">
+                            </div>
+
+
+                            <div class="col-12 mt-2">
+                                <input type="text" class="form-control" id="realname" placeholder="真實姓名" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="text" class="form-control" id="nickname" placeholder="暱稱" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="text" class="form-control" id="phone" placeholder="電話" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <input type="email" class="form-control" id="email" placeholder="電子郵件" required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label class="mr-5 input-font2">生日</label>
+                                <input type="date" class="form-control" id="birth" placeholder="生日" max="2020-12-31"
+                                       min="1900-01-01" style="padding-left: 100px;">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <select name="service-area" id="service-area" class="form-control-option" required>
+                                    <option disabled selected>請選擇地址</option>
+                                    <option value="1">台北市</option>
+                                    <option value="2">新北市</option>
+                                    <option value="3">基隆市</option>
+                                    <option value="4">桃園市</option>
+                                    <option value="5">新竹市</option>
+                                    <option value="6">新竹縣</option>
+                                    <option value="7">苗栗縣</option>
+                                    <option value="8">台中市</option>
+                                    <option value="9">彰化縣</option>
+                                    <option value="10">南投縣</option>
+                                    <option value="11">雲林縣</option>
+                                    <option value="12">嘉義市</option>
+                                    <option value="13">嘉義縣</option>
+                                    <option value="14">台南市</option>
+                                    <option value="15">高雄市</option>
+                                    <option value="16">屏東縣</option>
+                                    <option value="17">宜蘭縣</option>
+                                    <option value="18">花蓮縣</option>
+                                    <option value="19">台東縣</option>
+                                    <option value="20">澎湖縣</option>
+                                    <option value="21">金門縣</option>
+                                    <option value="22">連江縣</option>
+                                </select>
+                            </div>
+
+                            <!-- <div class="col-12 mt-4 mb-4 row">
+                                <label class="mr-5" style="padding-left: 3rem">性別</label>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="gender" value="1">
+                                    <label class="form-check-lable">男</label>
+                                </div>
+                                <div class="form-check  ml-5">
+                                    <input type="radio" class="form-check-input" name="gender" value="2">
+                                    <label class="form-check-lable">女</label>
+                                </div>
+                            </div> -->
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">儲存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### memberinfo End ##### -->
+
+@section scripts {
+    <script>
+        {
+            $("#file").change(function () {
+                readURL(this);
+            });
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#memberimg").attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        }
+    </script>
+}
