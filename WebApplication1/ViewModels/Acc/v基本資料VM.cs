@@ -30,7 +30,7 @@ namespace WebApplication1.ViewModels.Acc
 
         [Display(Name = "電話")]
         [DataType(DataType.PhoneNumber)]
-        [StringLength(10,MinimumLength = 10, ErrorMessage = "電話格式錯誤: 手機請用 0912345678 市話請用:")]
+        [StringLength(10,MinimumLength = 10, ErrorMessage = "電話格式錯誤: 手機請用 0912345678 市話請用: 07-6661111")]
         [Required(ErrorMessage = "您必須輸入電話！")]
         public string f電話 { get; set; }
 
