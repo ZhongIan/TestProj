@@ -32,6 +32,7 @@ namespace WebApplication1.Models.Common
         // TEMP_DATA MESSAGE KEY
         public static readonly string TK_Msg_ChefCreate = "TK_Msg_ChefCreate";
         public static readonly string TK_Msg_SalesItem = "TK_Msg_SalesItem";
+        public static readonly string TK_Msg_SaveCalendar = "TK_Msg_SaveCalendar";
 
         public static readonly string 照片存檔位置_會員 = "Memberimage";
         public static readonly string 照片存檔位置_項目 = "Productimage";
@@ -39,7 +40,7 @@ namespace WebApplication1.Models.Common
 
         // NOIMAGE 圖
         public static readonly string 預設NOIMAGE = "/Content/img/nopic.jpg";
-
+        
         public static string[] 地區 =
         {
             "台北市",

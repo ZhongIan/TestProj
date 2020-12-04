@@ -116,7 +116,7 @@ namespace WebApplication1.Controllers
                         }).FirstOrDefault();
 
             // 成為私廚檢查
-            if (user.姓名 == "" || user.會員照片 == "/Content/img/nopic.jpg")
+            if (user.姓名 == "" || user.會員照片 == CDictionary.預設NOIMAGE)
             {
                 // 回編輯基本資料
                 TempData[CDictionary.TK_Msg_ChefCreate] = "請填妥基本資料";

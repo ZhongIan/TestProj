@@ -63,7 +63,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost] // 限定 POST
-        // [ValidateAntiForgeryToken] // 防止 CSRF 跨域偽造請求, 只有從頁面來的才能通過
+        [ValidateAntiForgeryToken] // 防止 CSRF 跨域偽造請求, 只有從頁面來的才能通過
         public ActionResult calendar(v可預訂時間VM vm)
         {
             // 新增 可預訂時間
@@ -112,7 +112,10 @@ namespace WebApplication1.Controllers
                 }
                 db.SaveChanges();
             }
-            return Json(true, JsonRequestBehavior.AllowGet);
+
+            TempData[CDictionary.TK_Msg_SaveCalendar] = "儲存成功";
+
+            return RedirectToAction("calendar");
         }
 
         // === [販售清單列表] ===
