@@ -12,7 +12,7 @@ namespace WebApplication1.ViewModels.Acc
         public v基本資料VM()
         {
             this.f會員照片 = WebApplication1.Models.Common.CDictionary.預設NOIMAGE;
-            this.f暱稱 = "匿名";
+            this.f暱稱 = "";
         }
 
 

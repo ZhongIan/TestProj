@@ -419,21 +419,21 @@ namespace WebApplication1.Controllers
                 mail.IsBodyHtml = true;
                 //內容
                 mail.Body = "<span style = 'color:red;'>此為系統自動通知信，請勿直接回信！</span>" +
-                     "<h1>客戶資訊</h1>" +
-                           "<h3>" + user.f姓名 + "</h3>" +
-                           "<h4><b>暱 稱:</b><span>" + user.f暱稱 + "</span></h4>" +
-                           "<h4><b>電 話:</b><span>" + user.f電話 + "</span></h4>" +
-                           "<h4><b>電子郵件:</b><span>" + user.f電子郵件 + "</span></h4>" +
-                           "<h4><b>居住地址:</b><span>" + user.f居住縣市 + user.f詳細地址 + "</span></h4>" +
+                     "<h1><span style = 'color:black;'>客戶資訊</span></h1>" +
+                           "<h3><span style = 'color:black;'>" + user.f姓名 + "</span></h3>" +
+                           "<h4><b>暱 稱:</b><span style = 'color:black;'>" + user.f暱稱 + "</span></h4>" +
+                           "<h4><b>電 話:</b><span style = 'color:black;'>" + user.f電話 + "</span></h4>" +
+                           "<h4><b>電子郵件:</b><span style = 'color:black;'>" + user.f電子郵件 + "</span></h4>" +
+                           "<h4><b>居住地址:</b><span style = 'color:black;'>" + user.f居住縣市 + user.f詳細地址 + "</span></h4>" +
                            "<hr/>" +
-                           "<h1>產品資訊</h1>" +
-                           "<h4><b>風格:</b><span>" + prod.風格 + "</span></h4>" +
-                           "<h4><b>服務種類:</b><span>" + prod.服務種類 + "</span></h4>" +
-                           "<h4><b>產品名稱:</b><span>" + prod.項目名稱 + "</span></h4>" +
-                           "<h4><b>產品內容:</b><span>" + prod.項目內容 + "</span></h4>" +
-                           "<h4><b>單價:NT$</b><span>" + vm.價格 + "</span></h4>" +
-                           "<h4><b>數量:</b><span>" + vm.數量 + "份</span></h4>" +
-                           "<h4><b>總金額:NT$</b><span>" + vm.價格 * vm.數量 + "</span></h4>" +
+                           "<h1><span style = 'color:black;'>產品資訊</span></h1>" +
+                           "<h4><b>風格:</b><span style = 'color:black;'>" + prod.風格 + "</span></h4>" +
+                           "<h4><b>服務種類:</b><span style = 'color:black;'>" + prod.服務種類 + "</span></h4>" +
+                           "<h4><b>產品名稱:</b><span style = 'color:black;'>" + prod.項目名稱 + "</span></h4>" +
+                           "<h4><b>產品內容:</b><span style = 'color:black;'>" + prod.項目內容 + "</span></h4>" +
+                           "<h4><b>單價:NT$</b><span style = 'color:black;'>" + vm.價格 + "</span></h4>" +
+                           "<h4><b>數量:</b><span style = 'color:black;'>" + vm.數量 + "份</span></h4>" +
+                           "<h4><b>總金額:NT$</b><span style = 'color:black;'>" + vm.價格 * vm.數量 + "</span></h4>" +
                            "<span style = 'color:red;'>需額外扣除10%為平台手續費</span>";
 
                 //內容使用html

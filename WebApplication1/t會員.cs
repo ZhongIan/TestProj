@@ -18,7 +18,7 @@ namespace WebApplication1
         public t會員()
         {
             this.f姓名 = "";
-            this.f暱稱 = "匿名";
+            this.f暱稱 = "";
             this.f電話 = "";
             this.f生日 = "";
             this.f詳細地址 = "";

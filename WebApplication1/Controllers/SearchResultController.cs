@@ -27,6 +27,7 @@ namespace WebApplication1.Controllers
                 };
             }
 
+            
 
             if (vm.風格 != null && vm.地區 != null && vm.服務種類 != null && vm.時段 != null && vm.f日期 != null)
             {

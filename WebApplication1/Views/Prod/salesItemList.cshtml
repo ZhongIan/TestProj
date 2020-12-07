@@ -58,7 +58,7 @@
                                         <i class="fa fa-square unchecked checkbox" id="@item.product.fPID"></i><span class="pl-2"> <b>上架</b></span><br>
                                     }
                                 }
-                                <a href="@Url.Action("dishCreate","Prod", new { fPID = item.product.fPID })" class="pd1px"><i class="fa fa-plus"></i><span class="pl-2"> 菜色</span></a><br>
+                                <a href="@Url.Action("dishCreate", "Prod", new { fPID = item.product.fPID })" class="pd1px"><i class="fa fa-plus"></i><span class="pl-2"> 菜色</span></a><br>
                                 <a href="@Url.Action("productEdit", "Prod", new { fPID = item.product.fPID })" class="pd1px"><i class="fa fa-edit"></i><span class="pl-2">編輯</span></a><br>
                                 @*<a href="@Url.Action("productDelete", "Prod", new { fPID = item.product.fPID })" class="pd1px" onclick="confirm('你確定要刪除嗎?')"><i class="fa fa-trash"></i><span class="pl-2"> 刪除</span></a>*@
                             </td>
@@ -72,14 +72,18 @@
                             <td class="product_td table-bottom" style="width:10%;"><b>詳細內容:</b></td>
                             <td class="product_td table-bottom">@item.product.f項目內容</td>
                         </tr>
+                        @{
+                            int i = 0;
+                        }
                         @foreach (var dishitem in item.dish)
                         {
+                            i++;
                             <tr>
                                 <td rowspan="3" style="padding: 0; position: relative;">
                                     <img src="@dishitem.f菜品照片" class="img-style6" />
                                 </td>
                                 <td colspan="2" class="product_td">
-                                    <h6>菜色</h6>
+                                    <h6>菜色 @i</h6>
                                 </td>
                                 <td rowspan="3" class="text-left pl-4 table-border">
 

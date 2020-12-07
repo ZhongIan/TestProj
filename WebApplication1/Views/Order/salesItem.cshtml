@@ -28,7 +28,6 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(model => model.fPID)
-                @Html.HiddenFor(model => model.fPID)
                 @Html.HiddenFor(model => model.價格)
                 <div class="row">
                     <div class="col-12 col-lg-7">
@@ -213,7 +212,7 @@
                                     </td>
                                     <td>
                                     <td>
-                                        <h5 href="#">@item.暱稱</h5>
+                                        <h5 href="#">@(item.暱稱==""? "暱名" : item.暱稱)</h5>
                                         <div class="ratings" id="rate">
                                             @{
                                                 for (int i = 0; i < 5; i++)

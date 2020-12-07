@@ -247,7 +247,7 @@ namespace WebApplication1.Controllers
                 }
 
                 acc.f姓名 = vm.f姓名;
-                acc.f暱稱 = vm.f暱稱 ?? "匿名";
+                acc.f暱稱 = vm.f暱稱 ?? "";
                 acc.f電話 = vm.f電話;
                 acc.f生日 = vm.f生日;
                 acc.f居住縣市 = vm.f居住縣市;
