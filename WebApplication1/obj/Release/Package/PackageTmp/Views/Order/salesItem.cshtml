@@ -28,22 +28,26 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(model => model.fPID)
-                @Html.HiddenFor(model => model.fPID)
                 @Html.HiddenFor(model => model.價格)
                 <div class="row">
                     <div class="col-12 col-lg-7">
                         <div class="slick">
-                            <a href="@Model.項目照片" data-lightbox="group1">
-                                <img src="@Model.項目照片" class="img-style6">
-                            </a>
-                            @{
-                                foreach (var item in Model.菜品清單)
-                                {
-                                    <a href="@item.f菜品照片" data-lightbox="group1">
-                                        <img src="@item.f菜品照片" class="img-style6">
-                                    </a>
+                            <div class="salesitempic">
+                                <a href="@Model.項目照片" data-lightbox="group1">
+                                    <img src="@Model.項目照片" class="img-style6">
+                                </a>
+                            </div>
+                                @{
+                                    foreach (var item in Model.菜品清單)
+                                    {
+                                        <div class="salesitempic">
+                                        <a href="@item.f菜品照片" data-lightbox="group1">
+                                            <img src="@item.f菜品照片" class="img-style6">
+                                        </a>
+                                            </div>
+                                    }
                                 }
-                            }
+                            
                         </div>
                     </div>
 
@@ -63,7 +67,7 @@
                                 </tr>*@
                             <tr>
                                 <td>
-                                    @Html.DropDownListFor(model => model.fTID, Model.Select日期, new { @class = "form-control-option" })
+                                    @Html.DropDownListFor(model => model.fTID, Model.Select日期, new { @class = "form-control-option mb0" })
                                 </td>
                             </tr>
                             <tr>
@@ -208,7 +212,7 @@
                                     </td>
                                     <td>
                                     <td>
-                                        <h5 href="#">@item.暱稱</h5>
+                                        <h5 href="#">@(item.暱稱==""? "暱名" : item.暱稱)</h5>
                                         <div class="ratings" id="rate">
                                             @{
                                                 for (int i = 0; i < 5; i++)

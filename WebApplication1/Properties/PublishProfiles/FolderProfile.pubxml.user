@@ -8,10 +8,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/Database1.mdf">
-      <publishTime>12/02/2020 16:42:20</publishTime>
+      <publishTime>12/05/2020 23:42:38</publishTime>
     </File>
     <File Include="App_Data/Database1_log.ldf">
-      <publishTime>12/02/2020 16:42:20</publishTime>
+      <publishTime>12/05/2020 23:42:38</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/30/2020 09:03:46</publishTime>
@@ -194,10 +194,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2020 09:03:46</publishTime>
     </File>
     <File Include="bin/WebApplication1.dll">
-      <publishTime>12/03/2020 09:29:25</publishTime>
+      <publishTime>12/07/2020 09:37:53</publishTime>
     </File>
     <File Include="bin/WebApplication1.pdb">
-      <publishTime>12/03/2020 09:29:25</publishTime>
+      <publishTime>12/07/2020 09:37:53</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/30/2020 09:03:46</publishTime>
@@ -230,238 +230,238 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2020 09:03:46</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Canterbury.ttf">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/animate.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/classy-nav.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/custom-icon.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/font-awesome.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/lightbox.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/magnific-popup.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/nice-select.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/css/owl.carousel.min.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/015872d1-38cb-4ad7-bd58-4fbd08b19071.gif">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/0c0d3fe6-6505-4be0-9b0f-b096f0f0d51f.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/348feff8-abdf-4500-9aea-c2000faaacf3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/40a601ba-95c9-4a69-b225-db1a71b0df5c.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/4307ce67-a52a-44f7-a913-7d84060b8a8d.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Dishimage/b020a148-dd7d-49a7-9ed4-3dd8fd81d279.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/bg-img/about.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/add.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg4.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg5.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg6.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/bg7.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/breadcumb1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/breadcumb2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/breadcumb3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/breadcumb4.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/breadcumb5.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta4.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta5.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta6.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/insta7.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r4.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r5.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/r6.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr4.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr5.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr6.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr7.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr8.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/bg-img/sr9.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Content/img/blog-img/1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/blog-img/2.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/blog-img/3.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/burger.svg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/cake2.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/favicon.ico">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/hamburger.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/hamburger2.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/logo.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/pancake.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/pizza.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/rib.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/core-img/salad.png">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/img/nopic.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>11/20/2020 11:00:26</publishTime>
     </File>
     <File Include="Content/Productimage/4c0d2701-3162-458b-b95d-ee603014c8e1.jpg">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/04/2020 09:33:30</publishTime>
     </File>
     <File Include="Content/style.css.map">
-      <publishTime>12/02/2020 14:20:04</publishTime>
+      <publishTime>12/02/2020 14:20:06</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/30/2020 09:03:46</publishTime>
@@ -485,7 +485,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2020 09:03:44</publishTime>
     </File>
     <File Include="Model1.edmx.diagram">
-      <publishTime>12/01/2020 15:15:54</publishTime>
+      <publishTime>12/01/2020 15:15:56</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/30/2020 09:03:44</publishTime>
@@ -548,172 +548,175 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2020 09:03:44</publishTime>
     </File>
     <File Include="Views/Acc/center.cshtml">
-      <publishTime>12/02/2020 11:04:28</publishTime>
+      <publishTime>12/04/2020 14:03:56</publishTime>
     </File>
     <File Include="Views/Acc/chefCreate.cshtml">
-      <publishTime>12/02/2020 10:56:13</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Acc/chefEdit.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Acc/favorite.cshtml">
-      <publishTime>12/01/2020 14:05:38</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Acc/List.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Acc/login.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/04/2020 10:09:14</publishTime>
     </File>
     <File Include="Views/Acc/memberinfo.cshtml">
-      <publishTime>12/02/2020 10:38:46</publishTime>
+      <publishTime>12/04/2020 15:50:54</publishTime>
     </File>
     <File Include="Views/Acc/register.cshtml">
-      <publishTime>11/30/2020 10:51:24</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Acc/registersuccess.cshtml">
-      <publishTime>11/30/2020 09:10:00</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/buypoint.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/buypointsuccess.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/calendar.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/chefcenter.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/chefedit.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/chefinfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/clientinfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/dishesinfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/evaluate.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/favorite.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/index.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/login.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/membercenter.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/memberinfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/productinfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/register.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/registersuccess.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/salesitem.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/salesitemlist.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/searchlist.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Fontend/transaction.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>11/30/2020 09:03:44</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/02/2020 09:26:32</publishTime>
+      <publishTime>12/03/2020 15:18:36</publishTime>
+    </File>
+    <File Include="Views/Home/Service.cshtml">
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/buyPoint.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/buyPointSuccess.cshtml">
-      <publishTime>12/01/2020 02:54:48</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/chefInfo.cshtml">
-      <publishTime>11/30/2020 15:25:24</publishTime>
+      <publishTime>12/04/2020 09:33:30</publishTime>
     </File>
     <File Include="Views/Order/clientInfo.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/evaluate.cshtml">
-      <publishTime>12/01/2020 13:58:42</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/salesItem.cshtml">
-      <publishTime>12/02/2020 16:08:00</publishTime>
+      <publishTime>12/05/2020 16:22:36</publishTime>
     </File>
     <File Include="Views/Order/salesItemSuccess.cshtml">
-      <publishTime>12/01/2020 02:55:04</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Order/transaction.cshtml">
-      <publishTime>12/01/2020 16:09:18</publishTime>
+      <publishTime>12/04/2020 14:03:54</publishTime>
     </File>
     <File Include="Views/Prod/calendar.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/04/2020 16:40:00</publishTime>
     </File>
     <File Include="Views/Prod/dishCreate.cshtml">
-      <publishTime>11/30/2020 10:36:48</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Prod/dishEdit.cshtml">
-      <publishTime>11/30/2020 10:29:36</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Prod/productCreate.cshtml">
-      <publishTime>11/30/2020 10:31:24</publishTime>
+      <publishTime>12/04/2020 14:58:36</publishTime>
     </File>
     <File Include="Views/Prod/productEdit.cshtml">
-      <publishTime>11/30/2020 10:29:20</publishTime>
+      <publishTime>12/04/2020 14:56:10</publishTime>
     </File>
     <File Include="Views/Prod/salesItemList.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/05/2020 23:40:00</publishTime>
     </File>
     <File Include="Views/SearchResult/SearchByCondition.cshtml">
-      <publishTime>12/02/2020 10:19:59</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/SearchResult/SearchByKeyWord.cshtml">
-      <publishTime>12/02/2020 10:22:55</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Shared/_Breadcumb一般.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPage1.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>11/30/2020 09:03:44</publishTime>
+      <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/01/2020 09:45:20</publishTime>
+      <publishTime>12/07/2020 09:27:13</publishTime>
     </File>
   </ItemGroup>
 </Project>

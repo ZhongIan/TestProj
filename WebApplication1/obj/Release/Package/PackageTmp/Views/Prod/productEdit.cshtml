@@ -35,8 +35,8 @@
 
                         <div class="col-12 " style="margin-top:400px;"></div><!--先留著 不然圖片會跑掉-->
                         <div class="col-12 mt-5">
-                            @Html.LabelFor(vm => vm.f項目名稱, new { @class = "mr-5 input-font2" })
-                            @Html.EditorFor(model => model.f項目名稱, new { htmlAttributes = new { @class = "form-control", @style = "padding-left: 100px;" } })
+                            @* @Html.LabelFor(vm => vm.f項目名稱, new { @class = "mr-5 input-font2" }) *@
+                            @Html.EditorFor(model => model.f項目名稱, new { htmlAttributes = new { @class = "form-control", @placeholder = "項目名稱" } })
                             @Html.ValidationMessageFor(model => model.f項目名稱, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-12 mt-2">
@@ -87,8 +87,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="col-12 text-center">
                             <button class="btn delicious-btn mt-30" type="submit">儲存</button>
                         </div>

@@ -32,7 +32,7 @@
                             <div class="picbg mt-5 mb-2">
                                 <img id="memberimg" class="img-style"
                                      src="@Model.f會員照片" onerror="this.src='https://icon-library.com/images/no-image-icon/no-image-icon-5.jpg'" style="margin-bottom: 0px">
-                                <label class="btn delicious-btn" for="file" style="width:300px;">上傳圖片</label>
+                                <label class="btn delicious-btn nobord" for="file" style="width:300px;">上傳圖片</label>
                                 <input class="hide" id="file" type="file" style="display:none" name="image" multiple accept="image/gif, image/png, image/jpg, image/jpeg" />
                             </div>
 
@@ -78,8 +78,9 @@
                             </div>
 
                             <div class="col-12 mt-2">
+                                @Html.LabelFor(Model => Model.f居住縣市, htmlAttributes: new { @class = "mr-5 input-font2 inputadd" })
                                 @* f居住縣市 *@
-                                @Html.DropDownListFor(model => model.f居住縣市, Model.Select地區, new { @id = "service-area", @class = "form-control-option" })
+                                @Html.DropDownListFor(model => model.f居住縣市, Model.Select地區, new { @id = "service-area", @class = "form-control-option inputadd2" })
                                 @Html.ValidationMessageFor(model => model.f居住縣市, "", new { @class = "text-danger" })
                             </div>
 
@@ -88,13 +89,6 @@
                                 @Html.LabelFor(model => model.f詳細地址, htmlAttributes: new { @class = "mr-5 input-font2" })
                                 @Html.EditorFor(model => model.f詳細地址, new { htmlAttributes = new { @class = "form-control", @style = "padding-left: 100px;" } })
                                 @Html.ValidationMessageFor(model => model.f詳細地址, "", new { @class = "text-danger" })
-                            </div>
-
-
-                            <div class="col-md-12">
-                                <label class="mr-5 input-font2">E-mail</label>
-                                @Html.EditorFor(model => model.f電子郵件, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail", @style = "padding-left: 100px;" } })
-                                @Html.ValidationMessageFor(model => model.f電子郵件, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="col-12 text-center">

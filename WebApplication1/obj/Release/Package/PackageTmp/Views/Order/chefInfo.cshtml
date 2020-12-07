@@ -16,7 +16,6 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="row">
                     <table class="table">
                         <tr>
                             <th colspan="2" class="text-center">
@@ -84,10 +83,14 @@
                                     foreach (var item in Model.項目清單)
                                     {
                                         <div class="col-12 col-sm-6 col-lg-4 mb-30">
+                                            
                                             <div class="card">
-                                                <a href="@Url.Action("salesItem",new { fPID=item.fPID })">
-                                                    <img src="@item.項目照片" class="card-img-top">
-                                                    <div class="pinfo-bottom fixed-bottom fixed-left pt-2 pb-2 single-best-receipe-area">
+                                                <a href="@Url.Action("salesItem", new { fPID = item.fPID })">
+                                                    <div class="salesitempic2">
+                                                        <img src="@item.項目照片" class="img-style6">
+                                                    </div>
+                                                    
+                                                    <div class="pinfo-bottom fixed-bottom fixed-left pt-2 pb-2 single-best-receipe-area" id="itemdetail">
                                                         <table class="table2">
                                                             <tr>
                                                                 <td class="text-left">
@@ -122,14 +125,13 @@
                                                 
                                             </div>
                                         </div>
-                                    }
+                                                                                }
                                 }
 
                             </div>
                         </div>
                     </section>
                     <!-- ##### service End ##### -->
-                </div>
             </div>
         </div>
     </div>
