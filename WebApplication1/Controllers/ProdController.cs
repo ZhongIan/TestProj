@@ -119,13 +119,13 @@ namespace WebApplication1.Controllers
         }
 
         // === [販售清單列表] ===
-        public ActionResult salesItemList()
+        public ActionResult salesItemList(int? fPID)
         {
             var chefId = (int)Session[CDictionary.SK_LOGINED_CHEF_ID];
 
             var chef = db.t私廚.FirstOrDefault(c => c.fCID == chefId);
 
-            var prods = db.t販售項目.Where(p => p.fCID == chefId);
+            var prods = db.t販售項目.Where(p => p.fCID == chefId).OrderByDescending(p=>p.fPID);
 
             var 項目清單 = new List<項目>();
 
@@ -142,6 +142,8 @@ namespace WebApplication1.Controllers
                 chef = chef,
                 prods = 項目清單
             };
+
+            ViewBag.that = fPID;
 
             return View(vm);
         }
@@ -303,7 +305,7 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
 
                 // 重定向到 販售項目
-                return RedirectToAction("salesItemList");
+                return RedirectToAction("salesItemList", new { fPID= prod.fPID });
             }
             // 後端模型驗證失敗 Form物件回傳
 
@@ -370,7 +372,7 @@ namespace WebApplication1.Controllers
                 // 儲存 DB
                 db.SaveChanges();
                 // 回私廚所有項目
-                return RedirectToAction("salesItemList");
+                return RedirectToAction("salesItemList", new { fPID = vm.fPID });
             }
             // 後端模型驗證失敗 Form物件回傳
             return View(vm);
@@ -385,6 +387,7 @@ namespace WebApplication1.Controllers
                      where v.fVID == fVID
                      select new v菜品VM
                      {
+                         fPID = p.fPID,
                          fVID = v.fVID,
                          項目名稱 = p.f項目名稱,
                          f菜品名稱 = v.f菜品名稱,
@@ -416,7 +419,7 @@ namespace WebApplication1.Controllers
      
                 // 儲存 DB
                 db.SaveChanges();
-                return RedirectToAction("salesItemList");
+                return RedirectToAction("salesItemList", new { fPID = vm.fPID });
             }
             // 後端模型驗證失敗 Form物件回傳
             return View(vm);
@@ -425,7 +428,7 @@ namespace WebApplication1.Controllers
         // === 菜品刪除 === 
         public ActionResult dishDelete(int fVID)
         {
-            var dish = db.t菜品.FirstOrDefault(p => p.fVID == fVID);
+            var dish = db.t菜品.FirstOrDefault(v => v.fVID == fVID);
             if (dish != null)
             {
                 db.t菜品.Remove(dish);

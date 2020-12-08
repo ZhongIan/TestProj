@@ -1,0 +1,7 @@
+D:\全端\私廚專案\TestProj\ConsoleApp1\bin\Release\ConsoleApp1.exe.config
+D:\全端\私廚專案\TestProj\ConsoleApp1\bin\Release\ConsoleApp1.exe
+D:\全端\私廚專案\TestProj\ConsoleApp1\bin\Release\ConsoleApp1.pdb
+D:\全端\私廚專案\TestProj\ConsoleApp1\obj\Release\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\全端\私廚專案\TestProj\ConsoleApp1\obj\Release\ConsoleApp1.exe
+D:\全端\私廚專案\TestProj\ConsoleApp1\obj\Release\ConsoleApp1.pdb
+D:\全端\私廚專案\TestProj\ConsoleApp1\obj\Release\ConsoleApp1.csprojAssemblyReference.cache

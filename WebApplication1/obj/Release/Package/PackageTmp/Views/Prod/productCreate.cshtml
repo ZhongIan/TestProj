@@ -53,8 +53,23 @@
                             @*<div class="input-font1">/人</div>
                             *@
                             <div class="input-font1">/人</div>
-                            <input name="f價格" type="number" min="0" max="100000" step="1" class="form-control" id="price"
-                                   placeholder="價格(NT$)" style="padding-right: 70px;" required>
+                            @*<input name="f價格" type="number" min="0" max="100000" step="1" class="form-control" id="price"
+        placeholder="價格(NT$)" style="padding-right: 70px;" required>*@
+                            @Html.EditorFor(model => model.f價格, new
+                           {
+                           htmlAttributes =
+                              new
+                              {
+                                  @type = "number",
+                                  @min = "100",
+                                  @max = "100000",
+                                  @step = "1",
+                                  @class = "form-control",
+                                  @id = "price",
+                                  @placeholder = "價格(NT$)",
+                                  @style = "padding-right: 70px;"
+                              }
+                          })
                             @Html.ValidationMessageFor(model => model.f價格, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-12 mt-2">

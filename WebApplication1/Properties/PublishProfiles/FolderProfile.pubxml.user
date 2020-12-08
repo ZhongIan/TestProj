@@ -8,10 +8,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/Database1.mdf">
-      <publishTime>12/05/2020 23:42:38</publishTime>
+      <publishTime>12/07/2020 17:01:34</publishTime>
     </File>
     <File Include="App_Data/Database1_log.ldf">
-      <publishTime>12/05/2020 23:42:38</publishTime>
+      <publishTime>12/07/2020 17:01:34</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>11/30/2020 09:03:46</publishTime>
@@ -194,10 +194,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/30/2020 09:03:46</publishTime>
     </File>
     <File Include="bin/WebApplication1.dll">
-      <publishTime>12/07/2020 09:37:53</publishTime>
+      <publishTime>12/07/2020 15:20:28</publishTime>
     </File>
     <File Include="bin/WebApplication1.pdb">
-      <publishTime>12/07/2020 09:37:53</publishTime>
+      <publishTime>12/07/2020 15:20:28</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>11/30/2020 09:03:46</publishTime>
@@ -683,13 +683,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Views/Prod/productCreate.cshtml">
-      <publishTime>12/04/2020 14:58:36</publishTime>
+      <publishTime>12/07/2020 15:28:02</publishTime>
     </File>
     <File Include="Views/Prod/productEdit.cshtml">
-      <publishTime>12/04/2020 14:56:10</publishTime>
+      <publishTime>12/07/2020 15:21:14</publishTime>
     </File>
     <File Include="Views/Prod/salesItemList.cshtml">
-      <publishTime>12/05/2020 23:40:00</publishTime>
+      <publishTime>12/07/2020 12:10:34</publishTime>
     </File>
     <File Include="Views/SearchResult/SearchByCondition.cshtml">
       <publishTime>12/03/2020 14:39:52</publishTime>
@@ -716,7 +716,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/03/2020 14:39:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/07/2020 09:27:13</publishTime>
+      <publishTime>12/07/2020 17:01:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -29,7 +29,7 @@ namespace WebApplication1.ViewModels.Prod
 
         public List<SelectListItem> kind { get; set; }
 
-        [Required(ErrorMessage = "項目名稱為必填")]
+        [Required(ErrorMessage = "您必須輸入項目名稱")]
         [Display(Name = "項目名稱")]
         public string f項目名稱 { get; set; }
 
@@ -37,7 +37,7 @@ namespace WebApplication1.ViewModels.Prod
         [Display(Name = "項目內容")]
         public string f項目內容 { get; set; }
 
-        [Required(ErrorMessage = "價格為必填")]
+        [Required(ErrorMessage = "您必須輸入價格")]
         [Display(Name = "價格(NT$)")]
         [DataType(DataType.Currency)]
         [Range(100, 10000, ErrorMessage = "價格介於 100 ~ 10000")]
