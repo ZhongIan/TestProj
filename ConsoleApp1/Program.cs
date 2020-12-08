@@ -52,7 +52,7 @@ namespace ConsoleApp1
                 // 1. 更變訂單狀態 私廚確認_開放客戶評價 -> 客戶確認_完成評價
                 string sql_up_order = @"
                 UPDATE o
-                SET o.f評價日期=GETDATE(),
+                SET o.f評價日期 = @f評價日期,
 	                o.f狀態=3,
 	                o.f評級=5,
 	                o.f評價內容=N'5天未評價，系統自動評價'
@@ -60,7 +60,10 @@ namespace ConsoleApp1
                 WHERE o.fOID=@fOID
                 ";
 
-                db.SQLExecute(sql_up_order, new SqlParameter[] { new SqlParameter("@fOID", fOID_list[i]) });
+                db.SQLExecute(sql_up_order, new SqlParameter[] { 
+                    new SqlParameter("@fOID", fOID_list[i]),
+                    new SqlParameter("@f評價日期", DateTime.Now.ToString("g"))
+                });
 
                 // 2. 變更 [私廚] 的評級 : 由 [訂單] 平均算出
                 string sql_up_avg = @"
