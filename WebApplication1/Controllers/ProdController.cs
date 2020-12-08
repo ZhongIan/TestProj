@@ -103,7 +103,8 @@ namespace WebApplication1.Controllers
                         string[] Arr = s.Split('-');
                         DateTime time = Convert.ToDateTime(Arr[0]);
                         int status = Convert.ToInt32(Arr[1]);
-                        var deleteTime = db.t私廚可預訂時間.FirstOrDefault(t => t.f日期 == time && t.f時段 == status);
+                        var deleteTime = db.t私廚可預訂時間
+                            .FirstOrDefault(t => t.f日期 == time && t.f時段 == status && t.fCID == vm.fCID);
                         if (deleteTime != null)
                         {
                             db.t私廚可預訂時間.Remove(deleteTime);
